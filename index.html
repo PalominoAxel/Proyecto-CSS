@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INPELSA | Pasión por la Carne</title>
+    <!-- Fuente Oswald para estilo industrial cárnico -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html">
+                <img src="img/logo/logo.svg" alt="INPELSA Logo" class="nav-logo">
+            </a>
+
+            <nav class="nav">
+                <a href="nosotros.html" class="nav-link">Nosotros &#9662;</a>
+                <a href="lineas.html" class="nav-link">Líneas de Negocio &#9662;</a>
+                <a href="productos.html" class="nav-link">Productos</a>
+                <a href="marcas.html" class="nav-link">Marcas</a>
+                <a href="#" class="nav-link" onclick="goToSlide(1); return false;">
+                    <img src="img/logo/angus.jpg" alt="Angus" class="brand-icon"> Certified Angus Beef
+                </a>
+                <a href="#" class="nav-link" onclick="goToSlide(2); return false;">
+                    <img src="img/logo/barbaro.JPG" alt="Bárbaro" class="brand-icon"> Bárbaro
+                </a>
+                <a href="contacto.html" class="btn-contacto-nav">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SLIDER CONTENEDOR -->
+    <section class="hero-slider">
+        <div class="hero-overlay"></div>
+
+        <!-- Flechas de Control -->
+        <button class="arrow left" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="arrow right" onclick="changeSlide(1)">&#10095;</button>
+
+        <!-- SLIDE 1: INPELSA -->
+        <div class="slide active" style="background-image: url('img/hero-bg.jpg');">
+            <div class="hero-content">
+                <span class="hero-subtitle">SERVICIOS INTEGRALES</span>
+                <h1 class="hero-title text-gold">PARA TU NEGOCIO CÁRNICO</h1>
+                <div class="hero-buttons">
+                    <a href="lineas.html" class="btn-hero red">LÍNEA DE NEGOCIO &rsaquo;</a>
+                    <a href="productos.html" class="btn-hero outline">NUESTROS PRODUCTOS</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: CERTIFIED ANGUS BEEF -->
+        <div class="slide" style="background-image: url('img/angus-bg.png');">
+            <div class="hero-content">
+
+                <h1 class="hero-title text-white">SOMOS EL ÚNICO DISTRIBUIDOR LICENCIADO EN PERÚ</h1>
+                <div class="hero-buttons">
+                    <a href="https://www.certifiedangusbeef.com" target="_blank" class="btn-hero red">VISITA LA WEB
+                        &rsaquo;</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: BÁRBARO HAMBURGUESAS -->
+        <div class="slide" style="background-image: url('img/barbaro-bg.jpg');">
+            <div class="hero-content">
+                <h1 class="hero-title brand-barbaro">BĀRBARO</h1>
+                <p class="hero-subtitle-large">CONOCE NUESTRA MARCA EXCLUSIVA DE HAMBURGUESAS</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-hero red">VISITA LA WEB &rsaquo;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-sections">
+        <div class="container">
+
+            <!-- BANNER SOBRE NOSOTROS -->
+            <div class="about-card">
+                <div class="about-left">
+                    <span class="section-tag">SOBRE NOSOTROS</span>
+                    <h2 class="about-title">+30 AÑOS SIENDO REFERENTES</h2>
+                    <div class="red-line"></div>
+                </div>
+                <div class="about-right">
+                    <p class="about-description">
+                        Somos una <strong>empresa peruana líder en el sector cárnico</strong> gracias a nuestra calidad
+                        en los servicios y productos que ofrecemos a nuestros <strong>+600 clientes</strong> en todo el
+                        país.
+                    </p>
+                    <a href="nosotros.html" class="btn-about">CONOCE MÁS</a>
+                </div>
+            </div>
+
+            <!-- GRILLA DE 2 COLUMNAS (LÍNEAS Y PRODUCTOS) -->
+            <div class="grid-cards">
+
+                <!-- CARD 1: LÍNEAS DE NEGOCIO -->
+                <div class="feature-card" style="background-image: url('img/lineas-bg.jpg');">
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="card-badge">LÍNEAS DE NEGOCIO</div>
+                        <p class="card-text">
+                            Nos dedicamos a brindar servicio de beneficio (vacuno y porcino), procesamiento y
+                            comercialización de productos de proteína animal nacional e importados.
+                        </p>
+                        <a href="lineas.html" class="card-link">CONOCE MÁS &rsaquo;</a>
+                    </div>
+                </div>
+
+                <!-- CARD 2: PRODUCTOS -->
+                <div class="feature-card" style="background-image: url('img/productos-bg.jpg');">
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="card-badge">PRODUCTOS</div>
+                        <p class="card-text">
+                            Contamos con un amplio portafolio de productos y variedad de proteína animal, permitiéndonos
+                            tener siempre mercadería disponible.
+                        </p>
+                        <a href="productos.html" class="card-link">VER PRODUCTOS &rsaquo;</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- SECCIÓN MARCAS IMPORTADAS Y PREMIUM -->
+            <div class="marcas-section">
+
+                <!-- ENCABEZADO -->
+                <div class="marcas-header">
+                    <span class="section-tag">CONOCE NUESTRAS</span>
+                    <h2 class="marcas-title">MARCAS IMPORTADAS Y PREMIUM</h2>
+                    <div class="red-zigzag"></div>
+                </div>
+
+                <!-- DESTACADOS (2 CARDS GRANDES CON ZOOM) -->
+                <div class="marcas-featured-grid">
+
+                    <!-- CARD BÁRBARO -->
+                    <a href="marcas.html" class="marca-card main-card">
+                        <!-- Capa de fondo que hace Zoom -->
+                        <div class="card-bg barbaro-bg"></div>
+                        <!-- Capa con el logo superpuesto -->
+                        <div class="marca-content barbaro-content">
+                            <img src="img/Barbaro1.jpg" alt="Bárbaro Logo" class="barbaro-brand-img">
+                        </div>
+                    </a>
+
+                    <!-- CARD CERTIFIED ANGUS BEEF -->
+                    <a href="marcas.html" class="marca-card main-card">
+                        <!-- Capa de fondo que hace Zoom -->
+                        <div class="card-bg angus-bg"></div>
+                        <div class="marca-overlay"></div>
+                        <!-- Capa con el logo superpuesto -->
+                        <div class="marca-content angus-content">
+                            <img src="img/logo/angus.jpg" alt="Certified Angus Beef Logo" class="angus-badge-img">
+                        </div>
+                    </a>
+
+                </div>
+
+                <!-- SECUNDARIOS (4 CARDS CON REVELADO DE FONDO Y BISELADO) -->
+                <div class="marcas-logos-grid">
+
+                    <!-- CIUDAD DEL LAGO -->
+                    <div class="logo-box">
+                        <div class="logo-bg" style="background-image: url('img/marcas/ciudad-lago-bg.jpg');"></div>
+                        <img src="img/logo/ciudad-lago.png" alt="Ciudad del Lago" class="logo-img">
+                    </div>
+
+                    <!-- FRIMSA -->
+                    <div class="logo-box">
+                        <div class="logo-bg" style="background-image: url('img/marcas/frimsa-bg.jpg');"></div>
+                        <img src="img/logo/frimsa.png" alt="Frimsa" class="logo-img">
+                    </div>
+
+                    <!-- SNAKE RIVER FARMS -->
+                    <div class="logo-box">
+                        <div class="logo-bg" style="background-image: url('img/marcas/srf-bg.jpg');"></div>
+                        <img src="img/logo/srf.png" alt="Snake River Farms" class="logo-img">
+                    </div>
+
+                    <!-- COTO -->
+                    <div class="logo-box">
+                        <div class="logo-bg" style="background-image: url('img/marcas/coto-bg.jpg');"></div>
+                        <img src="img/logo/coto.png" alt="Coto" class="logo-img">
+                    </div>
+
+                </div>
+
+                <!-- BOTÓN INFERIOR -->
+                <div class="marcas-btn-container">
+                    <a href="marcas.html" class="btn-more-info">MÁS INFORMACIÓN &rsaquo;</a>
+                </div>
+
+            </div>
+
+            <!-- SECCIÓN VENTAJAS / POR QUÉ TRABAJAR CON INPELSA -->
+            <section class="ventajas-section">
+                <div class="container">
+
+                    <!-- Encabezado de la sección -->
+                    <div class="ventajas-header">
+                        <span class="section-tag-red">GRANDES VENTAJAS</span>
+                        <h2 class="ventajas-title">¿POR QUÉ TRABAJAR CON INPELSA?</h2>
+                        <div class="red-zigzag"></div>
+                    </div>
+
+                    <!-- Grilla de 3 Columnas con Divisores -->
+                    <div class="ventajas-grid">
+
+                        <!-- Columna 1 -->
+                        <div class="ventaja-item">
+                            <div class="ventaja-icon">
+                                <img src="img/icons/haccp-icon.png" alt="Certificación HACCP">
+                            </div>
+                            <h3 class="ventaja-item-title">Certificación HACCP</h3>
+                            <p class="ventaja-description">
+                                Garantizamos la calidad e inocuidad en todos nuestros productos y procesos, además de
+                                cumplir con las normas ambientales.
+
+                            </p>
+                            <p>
+                                ­
+                            </p>
+                            <a href="contacto.html" class="ventaja-link">CONTÁCTANOS &gt;</a>
+                        </div>
+
+                        <!-- Columna 2 -->
+                        <div class="ventaja-item">
+                            <div class="ventaja-icon">
+                                <img src="img/icons/meat-icon.png" alt="Portafolio de productos">
+                            </div>
+                            <h3 class="ventaja-item-title">Portafolio de productos</h3>
+                            <p class="ventaja-description">
+                                Contamos con un amplio portafolio de productos y variedad de proteína animal,
+                                permitiéndonos tener siempre mercadería disponible.
+                            </p>
+                            <a href="productos.html" class="ventaja-link">VER PRODUCTOS &gt;</a>
+                        </div>
+
+                        <!-- Columna 3 -->
+                        <div class="ventaja-item">
+                            <div class="ventaja-icon">
+                                <img src="img/icons/award-icon.png" alt="Nuestra trayectoria">
+                            </div>
+                            <h3 class="ventaja-item-title">Nuestra trayectoria</h3>
+                            <p class="ventaja-description">
+                                Más de 30 años en el mercado siendo referentes en el sector cárnico por nuestra calidad
+                                en los servicios y productos que ofrecemos.
+                            </p>
+                            <a href="nosotros.html" class="ventaja-link">CONÓCENOS &gt;</a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN CALL TO ACTION (ÚNETE A NUESTRA RED) -->
+            <section class="cta-banner">
+                <!-- Imagen de fondo con cortes de carne -->
+                <div class="cta-bg"></div>
+
+                <!-- Contenedor con corte arqueado/curvo -->
+                <div class="cta-arc-container">
+                    <div class="cta-content container">
+                        <span class="section-tag-red">TRABAJEMOS JUNTOS</span>
+                        <h2 class="cta-title">¡ÚNETE A NUESTRA RED DE CLIENTES!</h2>
+                        <div class="red-zigzag"></div>
+                        <p class="cta-description">
+                            En INPELSA garantizamos la más alta calidad en cada bocado y compartimos con nuestros
+                            clientes nuestra pasión por la carne.
+                        </p>
+                        <a href="contacto.html" class="btn-cta">MÁS INFORMACIÓN &gt;</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN BLOG / NOTICIAS -->
+            <section class="news-section">
+                <div class="container">
+
+                    <!-- Encabezado con Botón a la Derecha -->
+                    <div class="news-header">
+                        <div class="news-title-box">
+                            <span class="section-tag-red">SOBRE NOSOTROS</span>
+                            <h2 class="news-main-title">ENTÉRATE DE LO ÚLTIMO</h2>
+                            <div class="red-zigzag-left"></div>
+                        </div>
+                        <a href="blog.html" class="btn-news-outline">VER MÁS ARTÍCULOS &gt;</a>
+                    </div>
+
+                    <!-- Grilla de 3 Artículos -->
+                    <div class="news-grid">
+
+                        <!-- Tarjeta 1 -->
+                        <article class="news-card">
+                            <div class="news-img-wrap">
+                                <span class="news-badge">EVENTOS</span>
+                                <img src="img/blog/noticia-1.png" alt="The Taste of Victory">
+                            </div>
+                            <div class="news-body">
+                                <span class="news-date">Agosto 19, 2025</span>
+                                <h3 class="news-title">
+                                    <a href="articulo.html">The Taste of Victory- una experiencia gastronómica exclusiva
+                                        para los campeones del P1 Betsson Lima Padel Series</a>
+                                </h3>
+                            </div>
+                        </article>
+
+                        <!-- Tarjeta 2 -->
+                        <article class="news-card">
+                            <div class="news-img-wrap">
+                                <span class="news-badge">LOGROS Y PREMIOS</span>
+                                <img src="img/blog/noticia-2.jpg" alt="Certified Angus Beef">
+                            </div>
+                            <div class="news-body">
+                                <span class="news-date">Mayo 16, 2025</span>
+                                <h3 class="news-title">
+                                    <a href="articulo.html">Certified Angus Beef & Ducks Unlimited: Trabajar juntos para
+                                        preservar los pastizales en funcionamiento</a>
+                                </h3>
+                            </div>
+                        </article>
+
+                        <!-- Tarjeta 3 -->
+                        <article class="news-card">
+                            <div class="news-img-wrap">
+                                <span class="news-badge">NOTICIAS</span>
+                                <img src="img/blog/noticia-3.jpg" alt="Celebrando 31 años">
+                            </div>
+                            <div class="news-body">
+                                <span class="news-date">Abril 30, 2025</span>
+                                <h3 class="news-title">
+                                    <a href="articulo.html">Celebrando 31 años de historia y trabajo en equipo</a>
+                                </h3>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </section>
+
+    <!-- SCRIPT SLIDER -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) slide.classList.add('active');
+            });
+        }
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            showSlide(currentSlide);
+        }
+    </script>
+
+    <!-- FOOTER / PIE DE PÁGINA -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+
+            <!-- Columna 1: Redes Sociales -->
+            <div class="footer-col col-social">
+                <h3 class="footer-title">PASIÓN POR LA CARNE</h3>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+
+            <!-- Columna 2: Nosotros -->
+            <div class="footer-col">
+                <h3 class="footer-title">NOSOTROS</h3>
+                <ul class="footer-list">
+                    <li><a href="nosotros.html">QUIÉNES SOMOS</a></li>
+                    <li><a href="sedes.html">NUESTRAS SEDES</a></li>
+                    <li><a href="trabaja.html">TRABAJA CON NOSOTROS</a></li>
+                    <li><a href="blog.html">NOVEDADES</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Legales -->
+            <div class="footer-col">
+                <h3 class="footer-title">LEGALES</h3>
+                <ul class="footer-list">
+                    <li><a href="privacidad.html">POLÍTICAS DE PRIVACIDAD</a></li>
+                </ul>
+                <a href="libro-de-reclamaciones.html" class="libro-reclamaciones-btn">
+                    <img src="img/libro-reclamaciones.png" alt="Libro de Reclamaciones">
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Barra Inferior de Copyright -->
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>&copy; 2026 INPELSA</p>
+                <p>Diseñado por <strong>Estudiantes UTP</strong></p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
