@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros | INPELSA</title>
+    <!-- Fuentes e Iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Archivos de Estilos -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/nosotros.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html">
+                <img src="img/logo/logo.svg" alt="INPELSA Logo" class="nav-logo">
+            </a>
+
+            <nav class="nav">
+                <div class="nav-item dropdown">
+                    <a href="nosotros.html" class="nav-link dropdown-toggle">Nosotros <span
+                            class="dropdown-caret">&#9662;</span></a>
+                    <div class="dropdown-menu">
+                        <a href="nosotros.html#quienes-somos" class="dropdown-link">¿Quiénes somos?</a>
+                        <a href="nosotros.html#sedes" class="dropdown-link">Nuestras sedes</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="lineas.html" class="nav-link dropdown-toggle">Líneas de Negocio <span
+                            class="dropdown-caret">&#9662;</span></a>
+                    <div class="dropdown-menu">
+                        <a href="lineas.html#beneficio" class="dropdown-link">Servicio de Beneficio</a>
+                        <a href="lineas.html#maquila" class="dropdown-link">Servicio de Maquila</a>
+                        <a href="lineas.html#importados" class="dropdown-link">Productos Importados</a>
+                        <a href="lineas.html#res-nacional" class="dropdown-link">Res Nacional</a>
+                        <a href="lineas.html#hamburguesas" class="dropdown-link">Hamburguesas</a>
+                        <a href="lineas.html#menudencia" class="dropdown-link">Menudencia</a>
+                    </div>
+                </div>
+                <a href="productos.html" class="nav-link">Productos</a>
+                <a href="marcas.html" class="nav-link">Marcas</a>
+                <a href="#" class="nav-link" onclick="goToSlide(1); return false;">
+                    <img src="img/logo/angus.jpg" alt="Angus" class="brand-icon"> Certified Angus Beef
+                </a>
+                <a href="#" class="nav-link" onclick="goToSlide(2); return false;">
+                    <img src="img/logo/barbaro.JPG" alt="Bárbaro" class="brand-icon"> Bárbaro
+                </a>
+                <a href="contacto.html" class="btn-contacto-nav">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO Y VIDEO DESTACADO -->
+    <section class="nosotros-hero">
+        <div class="container text-center">
+            <span class="brand-tag">INPELSA</span>
+            <h1 class="hero-title">
+                NUESTRA PASIÓN POR LA CARNE <br>
+                ES EL MOTOR QUE IMPULSA A OFRECER <br>
+                PRODUCTOS DE LA MÁS ALTA CALIDAD A NUESTROS <br>
+                <span>+600 CLIENTES EN TODO EL PAÍS</span>
+            </h1>
+            <div class="decorative-wave">〰️</div>
+        </div>
+
+        <div class="container video-container">
+            <div class="video-box-placeholder"
+                style="background: url('img/nosotros/planta-proceso.jpg') center/cover no-repeat;">
+                <a href="https://www.youtube.com/watch?v=n7AP-VXpABQ" target="_blank" class="play-btn"
+                    aria-label="Reproducir Video en YouTube">
+                    <i class="fas fa-play"></i>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. ANCLA SUBSECCIÓN: ¿QUIÉNES SOMOS? -->
+    <section id="quienes-somos" class="section-quienes-somos">
+        <div class="container quienes-grid">
+            <div class="quienes-content">
+                <h2 class="section-title">QUIÉNES SOMOS</h2>
+                <div class="decorative-wave-left">〰️</div>
+
+                <div class="certificaciones-badges">
+                    <img src="img/icons/haccp-icon.png" alt="Certificación HACCP" class="badge-img">
+                    <img src="img/nosotros/cert-inocuidad.png" alt="Certificación Inocuidad" class="badge-img">
+                </div>
+
+                <p class="quienes-text">
+                    Somos una empresa peruana dedicada a brindar servicio de beneficio (vacuno y porcino), procesamiento
+                    y comercialización de productos de proteína animal nacional e importados.
+                </p>
+                <p class="quienes-text">
+                    Nuestras plantas están equipadas con salas de proceso y cámaras de frío de última generación para la
+                    conservación y calidad de nuestros productos.
+                </p>
+                <p class="quienes-text">
+                    Contamos con <strong>certificación HACCP</strong> que garantiza la calidad de todos nuestros
+                    procesos y cumplimos con las normas ambientales respetando y protegiendo el medio ambiente.
+                </p>
+
+                <a href="contacto.html" class="btn-rojo">CONTÁCTANOS &gt;</a>
+            </div>
+
+            <div class="quienes-image-container">
+                <div class="factory-silhouette">
+                    <img src="img/nosotros/equipo-planta.png" alt="Equipo de trabajo INPELSA en planta"
+                        class="img-planta">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERÍAS DE CLIENTES -->
+    <section class="section-clientes">
+        <div class="container">
+            <!-- Clientes Licenciados -->
+            <div class="clientes-block">
+                <div class="clientes-header">
+                    <h3>CLIENTES <span>LICENCIADOS</span></h3>
+                    <div class="slider-controls">
+                        <button class="control-btn"><i class="fas fa-chevron-left"></i></button>
+                        <button class="control-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <div class="logos-grid">
+                    <div class="logo-card">
+                        <img src="img/clientes/buffalo-beef.png" alt="Buffalo Beef">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/lacarreta.jpg" alt="LA CARRETA">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/doomosaltado.jpg" alt="DOOMO SALTADO">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/dongoyo.jpg" alt="DON GOYO">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/costumbresargentinas.jpg" alt="COSTUMBRES ARGENTINAS">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/lalocanda.jpg" alt="LA LOCANDA">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/carnal.jpg" alt="CARNAL">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/elparrillon.jpg" alt="EL PARRILLON">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/brass.jpg" alt="BRASS">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/el10.jpg" alt="EL 10">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/filomeno.jpg" alt="FILOMENO">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/donnico.jpg" alt="DON NICO">
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Clientes del Catálogo -->
+            <div class="clientes-block margin-top">
+                <div class="clientes-header">
+                    <h3>CLIENTES DEL <span>CATÁLOGO</span></h3>
+                    <div class="slider-controls">
+                        <button class="control-btn"><i class="fas fa-chevron-left"></i></button>
+                        <button class="control-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <div class="logos-grid">
+                    <div class="logo-card">
+                        <img src="img/clientes/panchita.jpg" alt="PANCHITA">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/papachos.jpg" alt="PAPACHOS">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/osso.jpg" alt="OSSO">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/salvador.jpg" alt="LA CUADRA DE SALVADOR">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/tinto.jpg" alt="TINTO & BIFE">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/sodexo.jpg" alt="SODEXO">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/anima.jpg" alt="ANIMA E CUORE">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/astrid.jpg" alt="ASTRID & GASTON">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/cosme.jpg" alt="COSME">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/calidez.jpg" alt="CALIDEZ ANDINA">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/maido.jpg" alt="MAIDO">
+                    </div>
+                    <div class="logo-card">
+                        <img src="img/clientes/osaka.jpg" alt="OSAKA">
+                    </div>
+                    
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HISTORIA / LÍNEA DEL TIEMPO -->
+    <section class="section-historia">
+        <div class="container-wide text-center">
+            <span class="sub-red">TRAYECTORIA</span>
+            <h2 class="section-title-lg">LA HISTORIA DE INPELSA</h2>
+            <div class="decorative-wave">〰️</div>
+
+            <div class="historia-controls">
+                <button class="control-btn" aria-label="Hito anterior"><i class="fas fa-chevron-left"></i></button>
+                <button class="control-btn" aria-label="Siguiente hito"><i class="fas fa-chevron-right"></i></button>
+            </div>
+
+            <div class="timeline-wrapper">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-grid">
+                    <div class="timeline-item">
+                        <div class="timeline-year">1991</div>
+                        <div class="timeline-node active"><i class="fas fa-anchor"></i></div>
+                        <div class="timeline-card">
+                            <img src="img/nosotros/historia-1991.jpg" alt="1991">
+                            <h4>11 de noviembre, 1991:</h4>
+                            <p>Se constituye el Matadero Frigorífico INPELSA (Inversiones Pecuarias Lurín), marcando el
+                                inicio de un proyecto liderado por un grupo de destacados ganaderos del valle de Lurín.
+                                Detectaron una oportunidad de colocar estratégicamente el matadero aprovechando que
+                                desarrollaban en promedio 10,000 cabezas de ganado vacuno.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">1994</div>
+                        <div class="timeline-node"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="timeline-card">
+                            <img src="img/nosotros/historia-1994.jpg" alt="1994">
+                            <h4>28 de abril, 1994:</h4>
+                            <p>Comienzan las operaciones del Matadero en la sede Lurín, equipado con tecnología de punta
+                                y altos estándares en la calidad de servicio, lo cual marcó una diferencia clara frente
+                                a otros mataderos del mercado.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">1999</div>
+                        <div class="timeline-node"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="timeline-card">
+                            <img src="img/nosotros/historia-1999.png" alt="1999">
+                            <h4>1999:</h4>
+                            <p>INPELSA amplía su capacidad operativa con la inauguración de la playa satélite en Surco.
+                                Este local recibe parte de las carcasas beneficiadas en la planta Lurín y alberga
+                                también una planta de producción para transformar y distribuir mercadería importada.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2001</div>
+                        <div class="timeline-node"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="timeline-card">
+                            <img src="img/nosotros/historia-2001.png" alt="2001">
+                            <h4>2001:</h4>
+                            <p>Continúa el proceso de expansión con la apertura de su segunda playa satélite en
+                                Yerbateros. Este local recibe carcasas beneficiadas desde Lurín, cuenta con carnicerías
+                                dentro del local y también con salas de desposte donde se realiza el maquilado de cortes
+                                de carne nacional.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tarjetas pendientes por completar (texto e imagen) -->
+                    <div class="timeline-item">
+                        <div class="timeline-year">2002</div>
+                        <div class="timeline-node"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="timeline-card">
+                            <img src="img/nosotros/historia2002.png" alt="2002">
+                            <h4>2002:</h4>
+                            <p>Inicia la importación de marcas de carne argentina. La carne Argentina destaca
+                                internacionalmente por los rigurosos procesos de selección y alimentación del ganado
+                                Angus, resultando en cortes de alto marmoleo y calidad superior.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2011</div>
+                        <div class="timeline-node"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="timeline-card">
+                            <img src="img/nosotros/historia2011.jpg" alt="2011">
+                            <h4>2011:</h4>
+                            <p>Nos convertimos en el único distribuidor licenciado en el Perú de la marca Certified
+                                Angus Beef, reconocida como la mejor carne Angus del mundo. Gracias a esta alianza, se
+                                logró licenciar a diversos clientes del canal HORECA y Retail.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2014</div>
+                        <div class="timeline-node"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="timeline-card">
+                            <img src="img/nosotros/historia2014.jpg" alt="2014">
+                            <h4>2014:</h4>
+                            <p>Recibimos el reconocimiento a Interntational Distributor Marketer of the Year a nivel
+                                mundial por parte de Certified Angus Beef®.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-node"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="timeline-card">
+                            <img src="img/nosotros/historia2025.jpg" alt="2025">
+                            <h4>Abril:</h4>
+                            <p>Nuestro especialista de la marca Certified Angus Beef® en Perú recibe el premio “New
+                                Performer of the Year” otorgado por el excelente trabajo en ventas y acciones
+                                promocionales de marketing en dicho mercado.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-node"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="timeline-card">
+                            <img src="img/nosotros/historia2025(1).jpg" alt="2025(1)">
+                            <h4>Setiembre:</h4>
+                            <p>Acurio Restaurantes reconoce a Inpelsa como parte de sus “Aliados que Inspiran 2025”,
+                                destacando nuestra excelencia y compromiso en la homologación de productos de la más
+                                alta calidad.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-node"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="timeline-card">
+                            <img src="img/nosotros/historia2025(2).jpg" alt="2025(2)">
+                            <h4>Setiembre:</h4>
+                            <p>Recibimos por segundo año reconocimiento a Interntational Dsitributor Marketer of the
+                                year a nivel mundial por parte e Certified Angus Beef®. Lo que nos consolida como la
+                                empresa mas solida en el mercado peruano en venta de producto americano de la más alta
+                                calidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROPÓSITO, MISIÓN Y VISIÓN -->
+    <section class="section-proposito">
+        <div class="proposito-grid">
+            <div class="proposito-image-block">
+                <img src="img/nosotros/mision-vision.jpg" alt="Equipo INPELSA" class="proposito-img">
+                <div class="proposito-overlay"></div>
+                <div class="proposito-left">
+                    <span class="sub-title">PROPÓSITO</span>
+                    <h2>BRINDAR LOS MEJORES PRODUCTOS Y SERVICIOS A LOS CLIENTES, CONTRIBUYENDO CON LA NUTRICIÓN DE LAS
+                        FAMILIAS PERUANAS.</h2>
+                </div>
+            </div>
+            <div class="proposito-right">
+                <div class="mv-block">
+                    <h3>MISIÓN</h3>
+                    <p>Ofrecer a nuestros clientes los mejores servicios y productos de proteína animal nacional e
+                        importada, asegurando los más altos estándares de calidad e inocuidad en toda nuestra cadena de
+                        valor.</p>
+                </div>
+                <div class="mv-divider"></div>
+                <div class="mv-block">
+                    <h3>VISIÓN</h3>
+                    <p>Ser referentes en el procesamiento y comercialización de carne nacional fresca y porcina en el
+                        mercado, complementando con otros servicios a medida en los segmentos gourmet y masivos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALORES -->
+    <section class="section-valores">
+        <div class="container-wide text-center">
+            <span class="sub-red">NUESTRA IDEOLOGÍA</span>
+            <h2 class="section-title-lg">NUESTROS VALORES</h2>
+            <div class="decorative-wave">〰️</div>
+
+            <div class="valores-grid">
+                <div class="valor-card">
+                    <div class="valor-icon"><i class="fas fa-award"></i></div>
+                    <h4>Calidad y Excelencia</h4>
+                    <p>Nos comprometemos a buscar la máxima calidad en todos los procesos de la empresa.</p>
+                </div>
+                <div class="valor-card">
+                    <div class="valor-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h4>Honradez</h4>
+                    <p>Somos transparentes e íntegros con nuestros clientes, proveedores y colaboradores.</p>
+                </div>
+                <div class="valor-card">
+                    <div class="valor-icon"><i class="fas fa-fire"></i></div>
+                    <h4>Pasión</h4>
+                    <p>Nos sentimos motivados por lo que hacemos y nos esforzamos para dar lo mejor.</p>
+                </div>
+                <div class="valor-card">
+                    <div class="valor-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h4>Adaptabilidad al cambio</h4>
+                    <p>Comprendemos rápidamente los cambios del mercado e innovamos de manera ágil.</p>
+                </div>
+                <div class="valor-card">
+                    <div class="valor-icon"><i class="fas fa-users"></i></div>
+                    <h4>Orientación al cliente</h4>
+                    <p>Brindamos soluciones eficientes enfocándonos en superar las expectativas de los clientes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. ANCLA SUBSECCIÓN: NUESTRAS SEDES -->
+    <section id="sedes" class="section-sedes">
+        <div class="container">
+            <!-- Sede Lurín -->
+            <div class="sede-card">
+                <div class="sede-img">
+                    <img src="img/nosotros/sede-lurin.jpg" alt="Sede Lurín INPELSA">
+                </div>
+                <div class="sede-info">
+                    <span class="sede-tag">SEDE LURÍN</span>
+                    <p>Nuestro primer local que funciona como camal, donde se realiza el faenamiento de res y cerdo bajo
+                        estrictos estándares sanitarios y de calidad. El servicio abarca todo el proceso: desde el
+                        recibimiento en corrales, faenado, oreo y transporte hacia nuestras dos playas satélites
+                        ubicadas en Surco y Yerbanteros.</p>
+                    <a href="https://maps.app.goo.gl/xfjr19Gbnb58SQZk7" target="_blank" class="btn-maps"><i
+                            class="fas fa-map-marker-alt"></i> VER EN MAPS &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Sede Surco -->
+            <div class="sede-card reverse">
+                <div class="sede-info">
+                    <span class="sede-tag">SEDE SURCO</span>
+                    <p>Recibe las carcasas de res y cerdo transportadas desde nuestro camal en Lurín, garantizando la
+                        cadena de frío y estándares sanitarios. Además, en esta planta se realiza la producción y corte
+                        de nuestras marcas importadas para su despacho al canal HORECA.</p>
+                    <a href="https://maps.app.goo.gl/PzHCmx4QNTPFjiwQ9" target="_blank" class="btn-maps"><i
+                            class="fas fa-map-marker-alt"></i> VER EN MAPS &rarr;</a>
+                </div>
+                <div class="sede-img">
+                    <img src="img/nosotros/sede-surco.jpg" alt="Sede Surco INPELSA">
+                </div>
+            </div>
+
+            <!-- Sede Yerbanteros -->
+            <div class="sede-card">
+                <div class="sede-img">
+                    <img src="img/nosotros/sede-yerbateros.jpg" alt="Sede Yerbanteros INPELSA">
+                </div>
+                <div class="sede-info">
+                    <span class="sede-tag">SEDE YERBANTEROS</span>
+                    <p>Esta sede opera como playa satélite, recibiendo las carcasas de res y cerdo provenientes de
+                        nuestro camal en Lurín. Además, ofrece el servicio de maquila y corte de carne nacional,
+                        atendiendo las necesidades del canal Retail.</p>
+                    <a href="https://maps.app.goo.gl/vkisiuWmEGKGgt1x5" target="_blank" class="btn-maps"><i
+                            class="fas fa-map-marker-alt"></i> VER EN MAPS &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+
+            <!-- Columna 1: Redes Sociales -->
+            <div class="footer-col col-social">
+                <h3 class="footer-title">PASIÓN POR LA CARNE</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/inpelsaperu/" target="_blank" rel="noopener" class="social-icon"
+                        aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@inpelsaperu" target="_blank" rel="noopener" class="social-icon"
+                        aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.linkedin.com/company/inpelsa-per%C3%BA/" target="_blank" rel="noopener"
+                        class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/InpelsaOficial/" target="_blank" rel="noopener"
+                        class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+
+            <!-- Columna 2: Nosotros -->
+            <div class="footer-col">
+                <h3 class="footer-title">NOSOTROS</h3>
+                <ul class="footer-list">
+                    <li><a href="nosotros.html#quienes-somos">QUIÉNES SOMOS</a></li>
+                    <li><a href="nosotros.html#sedes">NUESTRAS SEDES</a></li>
+                    <li><a href="blog.html">NOVEDADES</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Legales -->
+            <div class="footer-col">
+                <h3 class="footer-title">LEGALES</h3>
+                <ul class="footer-list">
+                    <li><a href="privacidad.html">POLÍTICAS DE PRIVACIDAD</a></li>
+                </ul>
+                <a href="libro-de-reclamaciones.html" class="libro-reclamaciones-btn">
+                    <img src="img/libro-reclamaciones.png" alt="Libro de Reclamaciones">
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Barra Inferior de Copyright -->
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>&copy; 2026 INPELSA</p>
+                <p>Diseñado por <strong>Estudiantes UTP</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="nosotros.js"></script>
+</body>
+
+</html>

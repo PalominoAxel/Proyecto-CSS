@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Líneas de Negocio | INPELSA</title>
+    <!-- Fuentes e Iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Archivos de Estilos -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/lineas.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html">
+                <img src="img/logo/logo.svg" alt="INPELSA Logo" class="nav-logo">
+            </a>
+
+            <nav class="nav">
+                <div class="nav-item dropdown">
+                    <a href="nosotros.html" class="nav-link dropdown-toggle">Nosotros <span
+                            class="dropdown-caret">&#9662;</span></a>
+                    <div class="dropdown-menu">
+                        <a href="nosotros.html#quienes-somos" class="dropdown-link">¿Quiénes somos?</a>
+                        <a href="nosotros.html#sedes" class="dropdown-link">Nuestras sedes</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="lineas.html" class="nav-link dropdown-toggle">Líneas de Negocio <span
+                            class="dropdown-caret">&#9662;</span></a>
+                    <div class="dropdown-menu">
+                        <a href="lineas.html#beneficio" class="dropdown-link">Servicio de Beneficio</a>
+                        <a href="lineas.html#maquila" class="dropdown-link">Servicio de Maquila</a>
+                        <a href="lineas.html#importados" class="dropdown-link">Productos Importados</a>
+                        <a href="lineas.html#res-nacional" class="dropdown-link">Res Nacional</a>
+                        <a href="lineas.html#hamburguesas" class="dropdown-link">Hamburguesas</a>
+                        <a href="lineas.html#menudencia" class="dropdown-link">Menudencia</a>
+                    </div>
+                </div>
+                <a href="productos.html" class="nav-link">Productos</a>
+                <a href="marcas.html" class="nav-link">Marcas</a>
+                <a href="#" class="nav-link" onclick="goToSlide(1); return false;">
+                    <img src="img/logo/angus.jpg" alt="Angus" class="brand-icon"> Certified Angus Beef
+                </a>
+                <a href="#" class="nav-link" onclick="goToSlide(2); return false;">
+                    <img src="img/logo/barbaro.JPG" alt="Bárbaro" class="brand-icon"> Bárbaro
+                </a>
+                <a href="contacto.html" class="btn-contacto-nav">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- BANNER SUPERIOR -->
+    <section class="lineas-hero">
+        <div class="container text-center">
+            <span class="sub-red">CONOCE NUESTRAS</span>
+            <h1 class="lineas-title">LÍNEAS DE NEGOCIO</h1>
+            <div class="decorative-wave">〰️</div>
+        </div>
+    </section>
+
+    <!-- 1. SERVICIO DE BENEFICIO GANADO VACUNO Y PORCINO -->
+    <section id="beneficio" class="lineas-block">
+        <div class="container lineas-grid">
+            <div class="lineas-content">
+                <span class="block-number">1</span>
+                <h2 class="block-title">SERVICIO DE BENEFICIO GANADO VACUNO Y PORCINO</h2>
+                <p class="block-text">Ofrecemos desde el servicio de corrales, faenado, oreo y transporte a nuestras
+                    playas satélites.</p>
+                <a href="contacto.html" class="btn-contactanos">CONTÁCTANOS &gt;</a>
+            </div>
+            <div class="lineas-slider">
+                <div class="slider-images">
+                    <img src="img/lineas/beneficio-1.jpg" alt="Ganado Vacuno" class="slide-img active"
+                        data-label="GANADO VACUNO">
+                    <img src="img/lineas/beneficio-2.jpg" alt="Ganado Porcino" class="slide-img" data-label="GANADO PORCINO">
+                </div>
+                <span class="slider-tag">GANADO VACUNO</span>
+                <button class="slider-arrow prev" aria-label="Imagen anterior"><i
+                        class="fas fa-chevron-left"></i></button>
+                <button class="slider-arrow next" aria-label="Imagen siguiente"><i
+                        class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. SERVICIO DE MAQUILA -->
+    <section id="maquila" class="lineas-block alt-bg">
+        <div class="container lineas-grid">
+            <div class="lineas-slider">
+                <div class="slider-images">
+                    <img src="img/lineas/maquila-1.jpg" alt="Servicio de Maquila" class="slide-img active">
+                    <img src="img/lineas/maquila-2.jpg" alt="Servicio de Maquila" class="slide-img">
+                </div>
+                <button class="slider-arrow prev" aria-label="Imagen anterior"><i
+                        class="fas fa-chevron-left"></i></button>
+                <button class="slider-arrow next" aria-label="Imagen siguiente"><i
+                        class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="lineas-content">
+                <span class="block-number">2</span>
+                <h2 class="block-title">SERVICIO DE MAQUILA</h2>
+                <p class="block-text">Contamos con una línea de servicio de maquila a terceros refrigerada que
+                    garantiza la cadena de frío, entregando un producto inocuo y con mayor vida útil.</p>
+                <a href="contacto.html" class="btn-contactanos">CONTÁCTANOS &gt;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. COMERCIALIZACIÓN DE PRODUCTOS IMPORTADOS -->
+    <section id="importados" class="lineas-block">
+        <div class="container lineas-grid">
+            <div class="lineas-content">
+                <span class="block-number">3</span>
+                <h2 class="block-title">COMERCIALIZACIÓN DE PRODUCTOS IMPORTADOS</h2>
+                <p class="block-text">Nuestras marcas importadas son reconocidas en el mercado por su calidad,
+                    jugosidad y sabor. Somos distribuidores exclusivos de marcas premium.</p>
+                <a href="contacto.html" class="btn-contactanos">CONTÁCTANOS &gt;</a>
+            </div>
+            <div class="lineas-slider">
+                <div class="slider-images">
+                    <img src="img/lineas/importados-1.jpg" alt="Productos Importados" class="slide-img active">
+                    <img src="img/lineas/importados-2.jpg" alt="Productos Importados" class="slide-img">
+                </div>
+                <button class="slider-arrow prev" aria-label="Imagen anterior"><i
+                        class="fas fa-chevron-left"></i></button>
+                <button class="slider-arrow next" aria-label="Imagen siguiente"><i
+                        class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. COMERCIALIZACIÓN DE RES NACIONAL -->
+    <section id="res-nacional" class="lineas-block alt-bg">
+        <div class="container lineas-grid">
+            <div class="lineas-slider">
+                <div class="slider-images">
+                    <img src="img/lineas/res-nacional-1.jpg" alt="Res Nacional" class="slide-img active">
+                    <img src="img/lineas/res-nacional-2.jpg" alt="Res Nacional" class="slide-img">
+                </div>
+                <button class="slider-arrow prev" aria-label="Imagen anterior"><i
+                        class="fas fa-chevron-left"></i></button>
+                <button class="slider-arrow next" aria-label="Imagen siguiente"><i
+                        class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="lineas-content">
+                <span class="block-number">4</span>
+                <h2 class="block-title">COMERCIALIZACIÓN DE RES NACIONAL</h2>
+                <p class="block-text">Contamos con desposte de res nacional para su venta en diferentes cortes, según
+                    requerimiento del cliente.</p>
+                <a href="contacto.html" class="btn-contactanos">CONTÁCTANOS &gt;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. LÍNEA DE PRODUCCIÓN DE CARNE DE RES PARA HAMBURGUESAS -->
+    <section id="hamburguesas" class="lineas-block">
+        <div class="container lineas-grid">
+            <div class="lineas-content">
+                <span class="block-number">5</span>
+                <h2 class="block-title">LÍNEA DE PRODUCCIÓN DE CARNE DE RES PARA HAMBURGUESAS</h2>
+                <p class="block-text">Diseñada para ofrecer opciones de alta calidad, adaptada en las necesidades del
+                    mercado y de nuestros clientes.</p>
+
+                <div class="lineas-accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span>Carne de res para hamburguesa Certified Angus Beef</span>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div class="accordion-panel">
+                            <p>Elaborada 100% con carne Certified Angus Beef®, la máxima referencia de calidad Angus
+                                en el mercado, ideal para negocios que buscan sabor y jugosidad premium.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span>Carne de res para hamburguesa nacional con grasa Angus</span>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div class="accordion-panel">
+                            <p>Combina carne de res nacional con grasa Angus, logrando un balance entre sabor y costo
+                                para distintos formatos de negocio.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
+                            <span>Hamburguesa Taylor made</span>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div class="accordion-panel">
+                            <p>Formulada a la medida según el corte, la mezcla y el gramaje que tu marca necesite.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="contacto.html" class="btn-contactanos">CONTÁCTANOS &gt;</a>
+            </div>
+            <div class="lineas-slider">
+                <div class="slider-images">
+                    <img src="img/lineas/hamburguesas-1.jpg" alt="Hamburguesas" class="slide-img active">
+                    <img src="img/lineas/hamburguesas-2.jpg" alt="Hamburguesas" class="slide-img">
+                </div>
+                <button class="slider-arrow prev" aria-label="Imagen anterior"><i
+                        class="fas fa-chevron-left"></i></button>
+                <button class="slider-arrow next" aria-label="Imagen siguiente"><i
+                        class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. LÍNEA DE MENUDENCIA -->
+    <section id="menudencia" class="lineas-block alt-bg">
+        <div class="container lineas-grid">
+            <div class="lineas-slider">
+                <div class="slider-images">
+                    <img src="img/lineas/menudencia-1.jpg" alt="Línea de Menudencia" class="slide-img active">
+                    <img src="img/lineas/menudencia-2.jpg" alt="Línea de Menudencia" class="slide-img">
+                </div>
+                <button class="slider-arrow prev" aria-label="Imagen anterior"><i
+                        class="fas fa-chevron-left"></i></button>
+                <button class="slider-arrow next" aria-label="Imagen siguiente"><i
+                        class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="lineas-content">
+                <span class="block-number">6</span>
+                <h2 class="block-title">LÍNEA DE MENUDENCIA</h2>
+                <p class="block-text">Ofrecemos una amplia variedad de menudencia de res nacional e importada,
+                    adaptándonos a los requerimientos específicos de cada cliente. Manejamos productos de calidad,
+                    ideales para diferentes segmentos del mercado.</p>
+                <a href="contacto.html" class="btn-contactanos">CONTÁCTANOS &gt;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+
+            <!-- Columna 1: Redes Sociales -->
+            <div class="footer-col col-social">
+                <h3 class="footer-title">PASIÓN POR LA CARNE</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/inpelsaperu/" target="_blank" rel="noopener" class="social-icon"
+                        aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@inpelsaperu" target="_blank" rel="noopener" class="social-icon"
+                        aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.linkedin.com/company/inpelsa-per%C3%BA/" target="_blank" rel="noopener"
+                        class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/InpelsaOficial/" target="_blank" rel="noopener"
+                        class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+
+            <!-- Columna 2: Nosotros -->
+            <div class="footer-col">
+                <h3 class="footer-title">NOSOTROS</h3>
+                <ul class="footer-list">
+                    <li><a href="nosotros.html#quienes-somos">QUIÉNES SOMOS</a></li>
+                    <li><a href="nosotros.html#sedes">NUESTRAS SEDES</a></li>
+                    <li><a href="blog.html">NOVEDADES</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Legales -->
+            <div class="footer-col">
+                <h3 class="footer-title">LEGALES</h3>
+                <ul class="footer-list">
+                    <li><a href="privacidad.html">POLÍTICAS DE PRIVACIDAD</a></li>
+                </ul>
+                <a href="libro-de-reclamaciones.html" class="libro-reclamaciones-btn">
+                    <img src="img/libro-reclamaciones.png" alt="Libro de Reclamaciones">
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Barra Inferior de Copyright -->
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>&copy; 2026 INPELSA</p>
+                <p>Diseñado por <strong>Estudiantes UTP</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

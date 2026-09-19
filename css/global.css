@@ -5,6 +5,8 @@
     --bg-dark: #000000;
     --text-white: #ffffff;
     --border-color: rgba(255, 255, 255, 0.15);
+    --dropdown-bg: #141414;
+    --dropdown-accent: #E31B23;
 }
 
 /* RESET */
@@ -13,6 +15,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Oswald', 'Arial Narrow', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -71,6 +77,68 @@ body {
     color: var(--primary);
 }
 
+/* DROPDOWN DEL MENÚ "NOSOTROS" */
+.nav-item {
+    position: relative;
+}
+
+.dropdown-caret {
+    font-size: 0.7em;
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-item:hover .dropdown-caret,
+.nav-item:focus-within .dropdown-caret {
+    transform: rotate(180deg);
+    color: var(--dropdown-accent);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 14px);
+    left: 0;
+    min-width: 230px;
+    background-color: var(--dropdown-bg);
+    border: 1px solid rgba(227, 27, 35, 0.35);
+    border-top: 3px solid var(--dropdown-accent);
+    border-radius: 6px;
+    padding: 8px 0;
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.55);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 1001;
+}
+
+.nav-item:hover .dropdown-menu,
+.nav-item:focus-within .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-link {
+    display: block;
+    padding: 12px 22px;
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    border-left: 3px solid transparent;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, padding-left 0.3s ease;
+}
+
+.dropdown-link:hover {
+    background-color: rgba(227, 27, 35, 0.12);
+    border-left-color: var(--dropdown-accent);
+    color: var(--dropdown-accent);
+    padding-left: 28px;
+}
+
 .brand-icon {
     height: 22px;
     width: auto;
@@ -111,5 +179,167 @@ body {
 
     .nav-link {
         font-size: 0.85rem;
+    }
+
+    .dropdown-menu {
+        left: 50%;
+        transform: translate(-50%, 12px);
+    }
+
+    .nav-item:hover .dropdown-menu,
+    .nav-item:focus-within .dropdown-menu {
+        transform: translate(-50%, 0);
+    }
+}
+
+/* ANCLAS: evita que el navbar fijo tape el contenido al hacer scroll a una sección */
+section[id] {
+    scroll-margin-top: 100px;
+}
+
+/* MAIN FOOTER (compartido por todas las páginas) */
+.main-footer {
+    background-color: #0d0d0d;
+    background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+    color: #ffffff;
+    padding-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 25px;
+}
+
+/* REDES SOCIALES (CIRCULARES) */
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icon {
+    width: 38px;
+    height: 38px;
+    border: 1.5px solid #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-3px);
+}
+
+/* LISTAS Y ENLACES */
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-list li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 12px;
+}
+
+.footer-list li::before {
+    content: '•';
+    color: #888888;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.footer-list a {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.footer-list a:hover {
+    color: #ffffff;
+}
+
+/* LIBRO DE RECLAMACIONES */
+.libro-reclamaciones-btn {
+    display: inline-block;
+    margin-top: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 4px;
+    background-color: #050505;
+    transition: border-color 0.3s ease;
+}
+
+.libro-reclamaciones-btn:hover {
+    border-color: var(--primary);
+}
+
+.libro-reclamaciones-btn img {
+    height: 48px;
+    width: auto;
+    display: block;
+}
+
+/* BARRA INFERIOR COPYRIGHT */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 0;
+    background-color: #080808;
+    font-size: 0.85rem;
+    color: #888888;
+}
+
+.footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-bottom strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* RESPONSIVE FOOTER */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-bottom-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
     }
 }

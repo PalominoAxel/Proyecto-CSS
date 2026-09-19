@@ -1,0 +1,673 @@
+/* =========================================================
+   INPELSA - ESTILOS DE LA SECCIÓN NOSOTROS
+   ========================================================= */
+
+body {
+    background-color: #0d0d0d;
+    color: #ffffff;
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* CONTENEDOR CENTRADO (ancho de referencia de la página Nosotros) */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 1. HERO SECTION Y VIDEO */
+.nosotros-hero {
+    padding-top: 120px;
+    padding-bottom: 60px;
+    background-color: #0d0d0d;
+}
+
+/* Centrado de texto reutilizable (secciones con título centrado) */
+.text-center {
+    text-align: center;
+}
+
+/* Ajuste específico del bloque de texto del HERO (ancho más angosto para el título) */
+.nosotros-hero .container.text-center {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Centra los elementos flexibles horizontalmente */
+}
+
+/* Contenedor más ancho para secciones que necesitan más espacio (Historia y Valores) */
+.container-wide {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.brand-tag {
+    color: #E31B23;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.hero-title {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.3;
+    text-transform: uppercase;
+    margin: 0 auto;
+}
+
+.hero-title span {
+    color: #E31B23;
+}
+
+/* OLA DECORATIVA ROJA CENTRADA */
+.decorative-wave {
+    color: #E31B23;
+    font-size: 1.3rem;
+    display: block;
+    margin: 18px auto 35px auto;
+    text-align: center;
+    width: 100%;
+}
+
+.video-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.video-box-placeholder {
+    position: relative;
+    height: 480px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #1a1a1a;
+    background-size: cover;
+    background-position: center;
+}
+
+.play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65px;
+    height: 65px;
+    background-color: #E31B23;
+    border: none;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(227, 27, 35, 0.6);
+    
+    /* PROPIEDADES CLAVE PARA CENTRAR EL ÍCONO BLANCO */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Compensación milimétrica para el ícono de triángulo */
+.play-btn i {
+    margin-left: 3px; /* El ícono del triángulo suele verse visualmente cargado a la izquierda si no se ajusta este pequeño margen */
+    line-height: 1;
+}
+
+.play-btn:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    background-color: #ff1e27;
+}
+
+.video-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.licenciado-badge {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 8px 12px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+}
+
+/* 2. SUBSECCIÓN: ¿QUIÉNES SOMOS? (#quienes-somos) */
+.section-quienes-somos {
+    padding: 80px 0;
+    background-color: #121212;
+    scroll-margin-top: 90px; /* Evita que el menú fijo tape el título al hacer clic */
+}
+
+.quienes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.certificaciones-badges {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.badge-img {
+    height: 50px;
+    width: auto;
+}
+
+.quienes-text {
+    color: #cccccc;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.btn-rojo {
+    display: inline-block;
+    background-color: #E31B23;
+    color: white;
+    padding: 10px 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    margin-top: 15px;
+    text-decoration: none;
+}
+
+.quienes-image-container {
+    position: relative;
+}
+
+.factory-silhouette {
+    clip-path: polygon(0 20%, 20% 10%, 20% 20%, 40% 10%, 40% 20%, 60% 10%, 60% 0, 100% 0, 100% 100%, 0 100%);
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+/* 3. GALERÍA DE CLIENTES */
+.section-clientes {
+    padding: 60px 0;
+    background-color: #0d0d0d;
+}
+
+.clientes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.clientes-header h3 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.clientes-header h3 span {
+    color: #E31B23;
+}
+
+.slider-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.control-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #444;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: opacity 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Botón bloqueado al llegar al límite del slider (ej. última tarjeta de Historia) */
+.control-btn:disabled {
+    opacity: 0.35;
+    color: #666;
+    border-color: #333;
+    cursor: not-allowed;
+}
+
+/* Slider horizontal de logos (loop infinito, arrastrable, sin barra de scroll visible) */
+.logos-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px;
+    width: 100%;
+    max-width: 910px;
+    /* exactamente 5 tarjetas de 170px + 4 gaps de 15px */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    cursor: grab;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+}
+
+.logos-grid::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.logos-grid.dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+}
+
+.logo-card {
+    flex: 0 0 170px;
+    height: 110px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    border: 1px solid #222;
+    user-select: none;
+}
+
+/* El logo ocupa toda la tarjeta, homogéneo sin importar sus dimensiones originales */
+.logo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    /* evita que el drag del logo interfiera con el drag del slider */
+}
+
+.margin-top {
+    margin-top: 50px;
+}
+
+/* 4. HISTORIA / LÍNEA DEL TIEMPO */
+.section-historia {
+    padding: 80px 0;
+    background-color: #141414;
+}
+
+.sub-red {
+    color: #E31B23;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.section-title-lg {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-top: 5px;
+}
+
+/* Controles de avance/retroceso, mismo patrón que CLIENTES */
+.historia-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.timeline-wrapper {
+    position: relative;
+    margin-top: 30px;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 28px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #333;
+    z-index: 1;
+}
+
+/* Slider horizontal de hitos (arrastrable, sin barra de scroll visible) */
+.timeline-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    cursor: grab;
+    position: relative;
+    z-index: 2;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.timeline-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.timeline-grid.dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+}
+
+.timeline-item {
+    flex: 0 0 300px;
+}
+
+.timeline-year {
+    font-weight: 800;
+    color: #E31B23;
+    margin-bottom: 10px;
+}
+
+.timeline-node {
+    width: 36px;
+    height: 36px;
+    background-color: #222;
+    border: 2px solid #E31B23;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #E31B23;
+    font-size: 0.8rem;
+}
+
+.timeline-node.active {
+    background-color: #E31B23;
+    color: white;
+}
+
+.timeline-card {
+    background-color: #222;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 0.8rem;
+    color: #bbb;
+}
+
+.timeline-card img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.timeline-card h4 {
+    color: white;
+    margin-bottom: 5px;
+}
+
+/* 5. PROPÓSITO / MISIÓN / VISIÓN */
+.section-proposito {
+    background-color: #0a0a0a;
+}
+
+.proposito-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 480px;
+}
+
+/* IZQUIERDA: imagen a pantalla completa con el texto de PROPÓSITO superpuesto */
+.proposito-image-block {
+    position: relative;
+    overflow: hidden;
+}
+
+.proposito-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.proposito-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.85), transparent);
+}
+
+.proposito-left {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 50px;
+}
+
+.proposito-left .sub-title {
+    color: #E5C384;
+    font-family: 'Oswald', 'Arial Narrow', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+}
+
+.proposito-left h2 {
+    color: #ffffff;
+    font-family: 'Oswald', 'Arial Narrow', sans-serif;
+    font-size: 1.4rem;
+    margin-top: 15px;
+    line-height: 1.5;
+}
+
+/* DERECHA: MISIÓN Y VISIÓN, fondo oscuro y separador entre bloques */
+.proposito-right {
+    padding: 60px 50px;
+    background-color: #0f0f0f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mv-block h3 {
+    color: #E5C384;
+    font-family: 'Oswald', 'Arial Narrow', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.mv-block p {
+    font-size: 0.85rem;
+    color: #aaa;
+    line-height: 1.6;
+}
+
+.mv-divider {
+    height: 1px;
+    margin: 28px 0;
+    background: linear-gradient(to right, transparent, rgba(229, 195, 132, 0.5), transparent);
+}
+
+/* 6. VALORES */
+.section-valores {
+    padding: 80px 0;
+    background-color: #0d0d0d;
+}
+
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.valor-card {
+    background-color: #141414;
+    padding: 25px 15px;
+    border-radius: 8px;
+    border: 1px solid #222;
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Aparición escalonada, una tarjeta después de otra, desde abajo */
+.valores-grid.in-view .valor-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.valores-grid .valor-card:nth-child(1) { transition-delay: 0s; }
+.valores-grid .valor-card:nth-child(2) { transition-delay: 0.12s; }
+.valores-grid .valor-card:nth-child(3) { transition-delay: 0.24s; }
+.valores-grid .valor-card:nth-child(4) { transition-delay: 0.36s; }
+.valores-grid .valor-card:nth-child(5) { transition-delay: 0.48s; }
+
+.valor-icon {
+    font-size: 1.8rem;
+    color: #aaa;
+    margin-bottom: 15px;
+}
+
+.valor-card h4 {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.valor-card p {
+    font-size: 0.75rem;
+    color: #888;
+    line-height: 1.4;
+}
+
+/* 7. SUBSECCIÓN: NUESTRAS SEDES (#sedes) */
+.section-sedes {
+    padding: 80px 0;
+    background-color: #121212;
+    scroll-margin-top: 90px; /* Desplazamiento suave alineado */
+}
+
+.sede-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border: 1px solid #282828;
+}
+
+.sede-img {
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+/* La imagen es más ancha que su columna y se mete debajo del panel de texto,
+   dando la sensación de que "sale" de detrás de él en el borde compartido */
+.sede-img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.sede-card.reverse .sede-img img {
+    left: auto;
+    right: 0;
+}
+
+.sede-info {
+    position: relative;
+    z-index: 2;
+    background-color: #1a1a1a;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease 0.15s, transform 0.9s ease 0.15s;
+}
+
+.sede-card.in-view .sede-img,
+.sede-card.in-view .sede-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sede-tag {
+    background-color: #FDF3E7;
+    color: #111;
+    font-weight: 800;
+    padding: 6px 14px;
+    border-radius: 4px;
+    display: inline-block;
+    width: fit-content;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.sede-info p {
+    color: #bbb;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.btn-maps {
+    color: white;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .quienes-grid, .sede-card, .proposito-grid {
+        grid-template-columns: 1fr;
+    }
+    .valores-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .proposito-image-block {
+        min-height: 340px;
+    }
+    .proposito-left {
+        max-width: 100%;
+        padding: 40px 30px;
+    }
+}
