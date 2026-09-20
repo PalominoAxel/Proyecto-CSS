@@ -95,25 +95,7 @@ body {
 }
 
 /* Botón outline (borde dorado, acorde a la línea gráfica de la página) */
-.btn-contactanos {
-    display: inline-block;
-    background-color: transparent;
-    color: #E5C384;
-    border: 1.5px solid #E5C384;
-    padding: 12px 28px;
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.btn-contactanos:hover {
-    background-color: #E5C384;
-    color: #0d0d0d;
-}
+/* .btn-contactanos ahora se genera desde scss/main.scss (mixin btn-outline) y vive en css/global.css */
 
 /* 3. SLIDER DE IMÁGENES DE CADA BLOQUE */
 .lineas-slider {
@@ -263,5 +245,36 @@ body {
 
     .block-title {
         font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .lineas-hero {
+        padding: 100px 0 40px;
+    }
+
+    .lineas-title {
+        font-size: 1.6rem;
+    }
+
+    .lineas-block {
+        padding: 60px 0;
+    }
+
+    .lineas-slider {
+        height: 220px;
+    }
+
+    .block-number {
+        font-size: 2.2rem;
+    }
+
+    .block-title {
+        font-size: 1.2rem;
+    }
+
+    .btn-contactanos {
+        padding: 10px 20px;
+        font-size: 0.8rem;
     }
 }

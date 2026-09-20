@@ -1,0 +1,37 @@
+/* =====================================================================
+   TEMA: VARIABLES (SCSS)
+   -----------------------------------------------------------------
+   Partial que centraliza los valores que antes estaban repetidos como
+   literales en varios archivos .css (global.css, nosotros.css,
+   lineas.css). Cambiar un color de marca ahora es cambiar una sola
+   línea aquí en vez de buscar el hexadecimal en todo el proyecto.
+   ===================================================================== */
+
+// Rojo principal usado en la Home (Hero, tarjetas, CTA, botón "Contacto" del navbar)
+$color-primary: #ff1d1d;
+$color-primary-hover: #d90000;
+
+// Rojo de acento usado en el dropdown "Líneas de Negocio" y como color de
+// marca en las páginas Nosotros / Líneas de Negocio
+$color-accent: #E31B23;
+
+// Dorado usado en botones outline y textos destacados de Líneas de Negocio
+$color-gold: #E5C384;
+
+// Fondos oscuros del sitio (dos tonos distintos que ya existían en el CSS
+// original y se respetan tal cual para no alterar el diseño visual)
+$color-black: #000000; // fondo del body / --bg-dark
+$color-dark: #0d0d0d;  // fondo de footer, Nosotros y Líneas de Negocio
+
+$color-white: #ffffff;
+$color-dropdown-bg: #141414;
+$color-border: rgba(255, 255, 255, 0.15);
+
+// Tipografías
+$font-heading: 'Oswald', 'Arial Narrow', sans-serif;
+$font-body: 'DM Sans', sans-serif;
+
+// Breakpoints responsivos (mobile-first: se usan con max-width)
+$bp-tablet: 992px;
+$bp-mobile: 768px;
+$bp-phone: 480px;

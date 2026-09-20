@@ -1,345 +1,518 @@
-/* VARIABLES GLOBALES */
+@charset "UTF-8";
+/* =====================================================================
+   INPELSA - main.scss
+   -----------------------------------------------------------------
+   Punto de entrada SCSS. Se compila a css/global.css (compartido por
+   index.html, nosotros.html y lineas.html) sin tocar el HTML.
+   Contiene: Navbar + dropdown "Líneas de Negocio", tarjetas de
+   clientes, botones y footer.
+
+   Unidad "Preprocesadores CSS/SASS": ver comentarios TEMA más abajo.
+   ===================================================================== */
+/* =====================================================================
+   TEMA: VARIABLES (SCSS)
+   -----------------------------------------------------------------
+   Partial que centraliza los valores que antes estaban repetidos como
+   literales en varios archivos .css (global.css, nosotros.css,
+   lineas.css). Cambiar un color de marca ahora es cambiar una sola
+   línea aquí en vez de buscar el hexadecimal en todo el proyecto.
+   ===================================================================== */
+/* ------------------------------------------------------------------ *
+ * TEMA: VARIABLES
+ * Se exponen también como Custom Properties (:root) porque
+ * css/index.css, css/lineas.css y css/nosotros.css siguen leyendo
+ * var(--primary), var(--bg-dark), etc. Así no hace falta tocar esos
+ * archivos ni el HTML.
+ * ------------------------------------------------------------------ */
 :root {
-    --primary: #ff1d1d;
-    --primary-hover: #d90000;
-    --bg-dark: #000000;
-    --text-white: #ffffff;
-    --border-color: rgba(255, 255, 255, 0.15);
-    --dropdown-bg: #141414;
-    --dropdown-accent: #E31B23;
+  --primary: #ff1d1d;
+  --primary-hover: #d90000;
+  --bg-dark: #000000;
+  --text-white: #ffffff;
+  --border-color: rgba(255, 255, 255, 0.15);
+  --dropdown-bg: #141414;
+  --dropdown-accent: #E31B23;
 }
 
 /* RESET */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Oswald', 'Arial Narrow', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Oswald", "Arial Narrow", sans-serif;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-white);
-    overflow-x: hidden;
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  overflow-x: hidden;
 }
 
-/* HEADER Y NAVBAR FIX */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ------------------------------------------------------------------ *
+ * TEMA: NESTING (Anidamiento)
+ * HEADER / NAVBAR, incluyendo el submenú desplegable de
+ * "Líneas de Negocio" (.nav-item > .dropdown-menu > .dropdown-link)
+ * ------------------------------------------------------------------ */
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
-    border-bottom: 1px solid var(--border-color);
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
 }
-
 .header-container {
-    max-width: 1350px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 80px;
-    padding: 0 20px;
+  max-width: 1350px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 20px;
 }
 
 .nav-logo {
-    height: 55px;
-    width: auto;
-    display: block;
+  height: 55px;
+  width: auto;
+  display: block;
 }
 
 .nav {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
-
 .nav-link {
-    color: var(--text-white);
-    text-decoration: none;
-    font-weight: 500;
-    text-transform: uppercase;
-    font-size: 0.95rem;
-    letter-spacing: 0.8px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    transition: color 0.3s;
+  color: var(--text-white);
+  text-decoration: none;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.3s;
 }
-
 .nav-link:hover {
-    color: var(--primary);
+  color: var(--primary);
 }
-
-/* DROPDOWN DEL MENÚ "NOSOTROS" */
 .nav-item {
-    position: relative;
+  position: relative;
 }
-
-.dropdown-caret {
-    font-size: 0.7em;
-    display: inline-block;
-    transition: transform 0.3s ease, color 0.3s ease;
+.nav-item .dropdown-caret {
+  font-size: 0.7em;
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
-
-.nav-item:hover .dropdown-caret,
-.nav-item:focus-within .dropdown-caret {
-    transform: rotate(180deg);
-    color: var(--dropdown-accent);
+.nav-item .dropdown-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 0;
+  min-width: 230px;
+  background-color: var(--dropdown-bg);
+  border: 1px solid rgba(227, 27, 35, 0.35);
+  border-top: 3px solid var(--dropdown-accent);
+  border-radius: 6px;
+  padding: 8px 0;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  z-index: 1001;
 }
-
-.dropdown-menu {
-    position: absolute;
-    top: calc(100% + 14px);
-    left: 0;
-    min-width: 230px;
-    background-color: var(--dropdown-bg);
-    border: 1px solid rgba(227, 27, 35, 0.35);
-    border-top: 3px solid var(--dropdown-accent);
-    border-radius: 6px;
-    padding: 8px 0;
-    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.55);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(12px);
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-    z-index: 1001;
+.nav-item .dropdown-menu .dropdown-link {
+  display: block;
+  padding: 12px 22px;
+  color: var(--text-white);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-left: 3px solid transparent;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, padding-left 0.3s ease;
 }
-
-.nav-item:hover .dropdown-menu,
-.nav-item:focus-within .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+.nav-item .dropdown-menu .dropdown-link:hover {
+  background-color: rgba(227, 27, 35, 0.12);
+  border-left-color: var(--dropdown-accent);
+  color: var(--dropdown-accent);
+  padding-left: 28px;
 }
-
-.dropdown-link {
-    display: block;
-    padding: 12px 22px;
-    color: var(--text-white);
-    text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-    border-left: 3px solid transparent;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, padding-left 0.3s ease;
+.nav-item:hover .dropdown-caret, .nav-item:focus-within .dropdown-caret {
+  transform: rotate(180deg);
+  color: var(--dropdown-accent);
 }
-
-.dropdown-link:hover {
-    background-color: rgba(227, 27, 35, 0.12);
-    border-left-color: var(--dropdown-accent);
-    color: var(--dropdown-accent);
-    padding-left: 28px;
+.nav-item:hover .dropdown-menu, .nav-item:focus-within .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .brand-icon {
-    height: 22px;
-    width: auto;
-    object-fit: contain;
+  height: 22px;
+  width: auto;
+  object-fit: contain;
 }
 
+/* ------------------------------------------------------------------ *
+ * TEMA: MIXINS
+ * Botones outline (borde + relleno al hover) y botones sólidos.
+ * Antes cada botón (.btn-contactanos, .btn-rojo, .btn-contacto-nav)
+ * repetía las mismas 10 propiedades con solo el color cambiando.
+ * ------------------------------------------------------------------ */
 .btn-contacto-nav {
-    background-color: var(--primary);
-    color: var(--text-white);
-    padding: 10px 24px;
-    text-decoration: none;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 4px;
-    font-size: 0.95rem;
-    transition: background 0.3s;
+  display: inline-block;
+  background-color: #ff1d1d;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+.btn-contacto-nav:hover {
+  background-color: #d90000;
+}
+.btn-contacto-nav {
+  padding: 10px 24px;
+  letter-spacing: 1px;
+  font-size: 0.95rem;
 }
 
-.btn-contacto-nav:hover {
-    background-color: var(--primary-hover);
+.btn-contactanos {
+  display: inline-block;
+  background-color: transparent;
+  color: #E5C384;
+  border: 1.5px solid #E5C384;
+  padding: 12px 28px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-contactanos:hover {
+  background-color: #E5C384;
+  color: #0d0d0d;
+}
+
+.btn-rojo {
+  display: inline-block;
+  background-color: #E31B23;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+.btn-rojo:hover {
+  background-color: #E31B23;
+}
+.btn-rojo {
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  margin-top: 15px;
 }
 
 /* RESPONSIVE NAVBAR */
 @media (max-width: 992px) {
-    .header-container {
-        flex-direction: column;
-        height: auto;
-        padding: 15px;
-        gap: 12px;
-    }
-
-    .nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-    }
-
-    .nav-link {
-        font-size: 0.85rem;
-    }
-
-    .dropdown-menu {
-        left: 50%;
-        transform: translate(-50%, 12px);
-    }
-
-    .nav-item:hover .dropdown-menu,
-    .nav-item:focus-within .dropdown-menu {
-        transform: translate(-50%, 0);
-    }
+  .header-container {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+    gap: 12px;
+  }
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .nav-link {
+    font-size: 0.85rem;
+  }
+  .nav-item .dropdown-menu {
+    left: 50%;
+    transform: translate(-50%, 12px);
+  }
+  .nav-item:hover .dropdown-menu, .nav-item:focus-within .dropdown-menu {
+    transform: translate(-50%, 0);
+  }
 }
-
+@media (max-width: 480px) {
+  .header-container {
+    padding: 12px;
+  }
+  .nav {
+    gap: 8px;
+  }
+  .nav-link {
+    font-size: 0.78rem;
+  }
+  .btn-contacto-nav {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+}
 /* ANCLAS: evita que el navbar fijo tape el contenido al hacer scroll a una sección */
 section[id] {
-    scroll-margin-top: 100px;
+  scroll-margin-top: 100px;
 }
 
-/* MAIN FOOTER (compartido por todas las páginas) */
+/* ------------------------------------------------------------------ *
+ * TEMA: NESTING
+ * Tarjetas de clientes (galería de logos, antes en css/nosotros.css)
+ * ------------------------------------------------------------------ */
+.section-clientes {
+  padding: 60px 0;
+  background-color: #0d0d0d;
+}
+.section-clientes .clientes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.section-clientes .clientes-header h3 {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+.section-clientes .clientes-header h3 span {
+  color: #E31B23;
+}
+.section-clientes .slider-controls {
+  display: flex;
+  gap: 8px;
+}
+.section-clientes .control-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #444;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: opacity 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.section-clientes .control-btn:disabled {
+  opacity: 0.35;
+  color: #666;
+  border-color: #333;
+  cursor: not-allowed;
+}
+.section-clientes .logos-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 15px;
+  width: 100%;
+  max-width: 910px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  cursor: grab;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.section-clientes .logos-grid::-webkit-scrollbar {
+  display: none;
+}
+.section-clientes .logos-grid.dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+}
+.section-clientes .logos-grid .logo-card {
+  flex: 0 0 170px;
+  height: 110px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  border: 1px solid #222;
+  user-select: none;
+}
+.section-clientes .logos-grid .logo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.margin-top {
+  margin-top: 50px;
+}
+
+@media (max-width: 480px) {
+  .section-clientes .clientes-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .section-clientes .logos-grid .logo-card {
+    flex-basis: 130px;
+    height: 90px;
+  }
+}
+/* ------------------------------------------------------------------ *
+ * TEMA: NESTING
+ * MAIN FOOTER (compartido por todas las páginas)
+ * ------------------------------------------------------------------ */
 .main-footer {
-    background-color: #0d0d0d;
-    background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
-    color: #ffffff;
-    padding-top: 60px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #0d0d0d;
+  background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+  color: #ffffff;
+  padding-top: 60px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr 1fr;
-    gap: 40px;
-    padding-bottom: 50px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 50px;
 }
 
 .footer-col {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .footer-title {
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 25px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 25px;
 }
 
-/* REDES SOCIALES (CIRCULARES) */
 .social-links {
-    display: flex;
-    gap: 12px;
+  display: flex;
+  gap: 12px;
+}
+.social-links .social-icon {
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+.social-links .social-icon:hover {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-3px);
 }
 
-.social-icon {
-    width: 38px;
-    height: 38px;
-    border: 1.5px solid #ffffff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-}
-
-.social-icon:hover {
-    background-color: var(--primary);
-    border-color: var(--primary);
-    transform: translateY(-3px);
-}
-
-/* LISTAS Y ENLACES */
 .footer-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-
 .footer-list li {
-    margin-bottom: 12px;
-    position: relative;
-    padding-left: 12px;
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 12px;
 }
-
 .footer-list li::before {
-    content: '•';
-    color: #888888;
-    position: absolute;
-    left: 0;
-    top: 0;
+  content: "•";
+  color: #888888;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
-
 .footer-list a {
-    color: #b0b0b0;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    transition: color 0.3s ease;
+  color: #b0b0b0;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
 }
-
 .footer-list a:hover {
-    color: #ffffff;
+  color: #ffffff;
 }
 
-/* LIBRO DE RECLAMACIONES */
 .libro-reclamaciones-btn {
-    display: inline-block;
-    margin-top: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 6px;
-    padding: 4px;
-    background-color: #050505;
-    transition: border-color 0.3s ease;
+  display: inline-block;
+  margin-top: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 4px;
+  background-color: #050505;
+  transition: border-color 0.3s ease;
 }
-
 .libro-reclamaciones-btn:hover {
-    border-color: var(--primary);
+  border-color: var(--primary);
 }
-
 .libro-reclamaciones-btn img {
-    height: 48px;
-    width: auto;
-    display: block;
+  height: 48px;
+  width: auto;
+  display: block;
 }
 
-/* BARRA INFERIOR COPYRIGHT */
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 20px 0;
-    background-color: #080808;
-    font-size: 0.85rem;
-    color: #888888;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 0;
+  background-color: #080808;
+  font-size: 0.85rem;
+  color: #888888;
+}
+.footer-bottom strong {
+  color: #ffffff;
+  font-weight: 700;
 }
 
 .footer-bottom-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-bottom strong {
-    color: #ffffff;
-    font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* RESPONSIVE FOOTER */
 @media (max-width: 768px) {
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 35px;
-    }
-
-    .footer-bottom-content {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .footer-bottom-content {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+@media (max-width: 480px) {
+  .footer-title {
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+  }
+  .social-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 0.85rem;
+  }
+  .libro-reclamaciones-btn img {
+    height: 40px;
+  }
 }

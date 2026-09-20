@@ -1,0 +1,585 @@
+/* =====================================================================
+   INPELSA - main.scss
+   -----------------------------------------------------------------
+   Punto de entrada SCSS. Se compila a css/global.css (compartido por
+   index.html, nosotros.html y lineas.html) sin tocar el HTML.
+   Contiene: Navbar + dropdown "Líneas de Negocio", tarjetas de
+   clientes, botones y footer.
+
+   Unidad "Preprocesadores CSS/SASS": ver comentarios TEMA más abajo.
+   ===================================================================== */
+
+@use 'variables' as *;
+
+/* ------------------------------------------------------------------ *
+ * TEMA: VARIABLES
+ * Se exponen también como Custom Properties (:root) porque
+ * css/index.css, css/lineas.css y css/nosotros.css siguen leyendo
+ * var(--primary), var(--bg-dark), etc. Así no hace falta tocar esos
+ * archivos ni el HTML.
+ * ------------------------------------------------------------------ */
+:root {
+    --primary: #{$color-primary};
+    --primary-hover: #{$color-primary-hover};
+    --bg-dark: #{$color-black};
+    --text-white: #{$color-white};
+    --border-color: #{$color-border};
+    --dropdown-bg: #{$color-dropdown-bg};
+    --dropdown-accent: #{$color-accent};
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-heading;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    overflow-x: hidden;
+}
+
+// Reset de imágenes responsivas: varias <img> del sitio (ej. .img-planta en
+// Nosotros) no tenían ninguna regla de tamaño, así que se renderizaban a su
+// ancho natural (hasta 470-800px) y reventaban el layout en móvil forzando
+// scroll horizontal. Con este tope, cualquier imagen se encoge al ancho de
+// su contenedor y las reglas explícitas (.nav-logo, .badge-img, etc. con
+// height fijo) siguen mandando porque max-width solo actúa como techo.
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ------------------------------------------------------------------ *
+ * TEMA: NESTING (Anidamiento)
+ * HEADER / NAVBAR, incluyendo el submenú desplegable de
+ * "Líneas de Negocio" (.nav-item > .dropdown-menu > .dropdown-link)
+ * ------------------------------------------------------------------ */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+
+    // & + "-container" -> .header-container
+    &-container {
+        max-width: 1350px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 80px;
+        padding: 0 20px;
+    }
+}
+
+.nav-logo {
+    height: 55px;
+    width: auto;
+    display: block;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    &-link {
+        color: var(--text-white);
+        text-decoration: none;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 0.95rem;
+        letter-spacing: 0.8px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        transition: color 0.3s;
+
+        &:hover {
+            color: var(--primary);
+        }
+    }
+
+    // Ítem con submenú desplegable (dropdown de Nosotros / Líneas de Negocio)
+    &-item {
+        position: relative;
+
+        .dropdown-caret {
+            font-size: 0.7em;
+            display: inline-block;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 14px);
+            left: 0;
+            min-width: 230px;
+            background-color: var(--dropdown-bg);
+            border: 1px solid rgba(227, 27, 35, 0.35);
+            border-top: 3px solid var(--dropdown-accent);
+            border-radius: 6px;
+            padding: 8px 0;
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.55);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+            z-index: 1001;
+
+            .dropdown-link {
+                display: block;
+                padding: 12px 22px;
+                color: var(--text-white);
+                text-decoration: none;
+                font-size: 0.88rem;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 0.6px;
+                border-left: 3px solid transparent;
+                transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, padding-left 0.3s ease;
+
+                &:hover {
+                    background-color: rgba(227, 27, 35, 0.12);
+                    border-left-color: var(--dropdown-accent);
+                    color: var(--dropdown-accent);
+                    padding-left: 28px;
+                }
+            }
+        }
+
+        // Estado abierto: al pasar el mouse o enfocar con teclado
+        &:hover,
+        &:focus-within {
+            .dropdown-caret {
+                transform: rotate(180deg);
+                color: var(--dropdown-accent);
+            }
+
+            .dropdown-menu {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        }
+    }
+}
+
+.brand-icon {
+    height: 22px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* ------------------------------------------------------------------ *
+ * TEMA: MIXINS
+ * Botones outline (borde + relleno al hover) y botones sólidos.
+ * Antes cada botón (.btn-contactanos, .btn-rojo, .btn-contacto-nav)
+ * repetía las mismas 10 propiedades con solo el color cambiando.
+ * ------------------------------------------------------------------ */
+@mixin btn-outline($color, $hover-text: $color-dark) {
+    display: inline-block;
+    background-color: transparent;
+    color: $color;
+    border: 1.5px solid $color;
+    padding: 12px 28px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+        background-color: $color;
+        color: $hover-text;
+    }
+}
+
+@mixin btn-solid($bg, $hover-bg: $bg, $text: $color-white) {
+    display: inline-block;
+    background-color: $bg;
+    color: $text;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: $hover-bg;
+    }
+}
+
+// Botón "Contacto" del navbar
+.btn-contacto-nav {
+    @include btn-solid($color-primary, $color-primary-hover);
+    padding: 10px 24px;
+    letter-spacing: 1px;
+    font-size: 0.95rem;
+}
+
+// Botón outline dorado "Contáctanos" (antes en css/lineas.css)
+.btn-contactanos {
+    @include btn-outline($color-gold);
+}
+
+// Botón sólido rojo de la sección ¿Quiénes somos? (antes en css/nosotros.css)
+.btn-rojo {
+    @include btn-solid($color-accent);
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    margin-top: 15px;
+}
+
+/* RESPONSIVE NAVBAR */
+@media (max-width: $bp-tablet) {
+    .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+
+        &-link {
+            font-size: 0.85rem;
+        }
+
+        &-item {
+            .dropdown-menu {
+                left: 50%;
+                transform: translate(-50%, 12px);
+            }
+
+            &:hover .dropdown-menu,
+            &:focus-within .dropdown-menu {
+                transform: translate(-50%, 0);
+            }
+        }
+    }
+}
+
+// Ajuste fino para teléfonos angostos (no existía antes: el menú se
+// desbordaba y el botón de contacto quedaba demasiado grande)
+@media (max-width: $bp-phone) {
+    .header-container {
+        padding: 12px;
+    }
+
+    .nav {
+        gap: 8px;
+
+        &-link {
+            font-size: 0.78rem;
+        }
+    }
+
+    .btn-contacto-nav {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+}
+
+/* ANCLAS: evita que el navbar fijo tape el contenido al hacer scroll a una sección */
+section[id] {
+    scroll-margin-top: 100px;
+}
+
+/* ------------------------------------------------------------------ *
+ * TEMA: NESTING
+ * Tarjetas de clientes (galería de logos, antes en css/nosotros.css)
+ * ------------------------------------------------------------------ */
+.section-clientes {
+    padding: 60px 0;
+    background-color: $color-dark;
+
+    .clientes-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+
+        h3 {
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+
+            span {
+                color: $color-accent;
+            }
+        }
+    }
+
+    .slider-controls {
+        display: flex;
+        gap: 8px;
+    }
+
+    // Botón bloqueado al llegar al límite del slider
+    .control-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1px solid #444;
+        background: transparent;
+        color: white;
+        cursor: pointer;
+        transition: opacity 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+        &:disabled {
+            opacity: 0.35;
+            color: #666;
+            border-color: #333;
+            cursor: not-allowed;
+        }
+    }
+
+    // Slider horizontal de logos (loop infinito, arrastrable, sin scrollbar visible)
+    .logos-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 15px;
+        width: 100%;
+        max-width: 910px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        cursor: grab;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &.dragging {
+            cursor: grabbing;
+            scroll-behavior: auto;
+        }
+
+        .logo-card {
+            flex: 0 0 170px;
+            height: 110px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            border: 1px solid #222;
+            user-select: none;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                pointer-events: none;
+            }
+        }
+    }
+}
+
+.margin-top {
+    margin-top: 50px;
+}
+
+// Tarjetas de cliente más compactas en teléfonos: a 170x110px por tarjeta
+// varias quedaban cortadas a la mitad en pantallas de 360-400px de ancho.
+@media (max-width: $bp-phone) {
+    .section-clientes {
+        .clientes-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .logos-grid .logo-card {
+            flex-basis: 130px;
+            height: 90px;
+        }
+    }
+}
+
+/* ------------------------------------------------------------------ *
+ * TEMA: NESTING
+ * MAIN FOOTER (compartido por todas las páginas)
+ * ------------------------------------------------------------------ */
+.main-footer {
+    background-color: $color-dark;
+    background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+    color: $color-white;
+    padding-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: $color-white;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 25px;
+}
+
+// Redes sociales circulares
+.social-links {
+    display: flex;
+    gap: 12px;
+
+    .social-icon {
+        width: 38px;
+        height: 38px;
+        border: 1.5px solid $color-white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $color-white;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+    }
+}
+
+// Listas y enlaces del footer
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        margin-bottom: 12px;
+        position: relative;
+        padding-left: 12px;
+
+        &::before {
+            content: '•';
+            color: #888888;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+
+    a {
+        color: #b0b0b0;
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: $color-white;
+        }
+    }
+}
+
+// Libro de reclamaciones
+.libro-reclamaciones-btn {
+    display: inline-block;
+    margin-top: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 4px;
+    background-color: #050505;
+    transition: border-color 0.3s ease;
+
+    &:hover {
+        border-color: var(--primary);
+    }
+
+    img {
+        height: 48px;
+        width: auto;
+        display: block;
+    }
+}
+
+// Barra inferior de copyright
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 0;
+    background-color: #080808;
+    font-size: 0.85rem;
+    color: #888888;
+
+    strong {
+        color: $color-white;
+        font-weight: 700;
+    }
+}
+
+.footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* RESPONSIVE FOOTER */
+@media (max-width: $bp-mobile) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-bottom-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+// Refuerzo para teléfonos pequeños: el logo/título del footer y los
+// íconos sociales quedaban demasiado grandes en pantallas de 360px.
+@media (max-width: $bp-phone) {
+    .footer-title {
+        font-size: 1.05rem;
+        margin-bottom: 18px;
+    }
+
+    .social-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 0.85rem;
+    }
+
+    .libro-reclamaciones-btn img {
+        height: 40px;
+    }
+}

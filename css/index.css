@@ -1052,6 +1052,10 @@
         font-size: 3.8rem;
     }
 
+    .hero-subtitle {
+        font-size: 2rem;
+    }
+
     .hero-subtitle-large {
         font-size: 1.2rem;
     }
@@ -1061,6 +1065,17 @@
     }
 
     .arrow {
+        display: none;
+    }
+
+    .hero-buttons {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    /* .about-card::after es solo una silueta decorativa: en columna se
+       superpone al texto, así que se oculta en pantallas angostas */
+    .about-card::after {
         display: none;
     }
 }
@@ -1080,5 +1095,53 @@
 
     .marcas-logos-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.9rem;
+    }
+
+    .hero-title.brand-barbaro {
+        font-size: 2.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+
+    .hero-subtitle-large {
+        font-size: 1rem;
+    }
+
+    .btn-hero {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+
+    .about-card {
+        padding: 25px 20px;
+    }
+
+    .about-title {
+        font-size: 1.6rem;
+    }
+
+    .marcas-title,
+    .ventajas-title {
+        font-size: 1.7rem;
+    }
+
+    .marca-content {
+        padding: 0 20px;
+    }
+
+    .angus-badge-img {
+        height: 90px;
+    }
+
+    .barbaro-brand-img {
+        height: 60px;
     }
 }
