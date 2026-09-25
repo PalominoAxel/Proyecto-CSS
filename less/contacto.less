@@ -1,0 +1,320 @@
+/* =====================================================================
+   INPELSA - contacto.less
+   -----------------------------------------------------------------
+   Hoja de estilos de la página "Contacto" (sedes + formulario).
+   Se compila a css/contacto.css con:
+
+       lessc less/contacto.less css/contacto.css
+
+   Complementa a css/global.css (navbar y footer compartidos por el
+   resto del sitio), no lo reemplaza.
+   ===================================================================== */
+
+// ------------------------------------------------------------------
+// VARIABLES
+// ------------------------------------------------------------------
+@color-bg: #0c0c0c;
+@color-card: #242424;
+@color-input: #3a3a3a;
+@color-red: #E31C25;
+@color-white: #ffffff;
+@color-text-muted: #9a9a9a;
+@color-icon: #c8c8c8;
+@color-label: #E8D9B5;     // crema/dorado tenue de los labels
+@color-badge: #2a2a2a;
+@color-divider: #222222;
+
+@font-heading: 'Oswald', 'Arial Narrow', sans-serif;
+@font-body: 'DM Sans', sans-serif;
+
+@bp-mobile: 768px;
+@bp-mobile-max: (@bp-mobile - 1); // 767px
+
+// ------------------------------------------------------------------
+// OPERACIONES MATEMÁTICAS
+// Todas las medidas se derivan de @spacing-unit
+// ------------------------------------------------------------------
+@spacing-unit: 10px;
+
+@section-padding-top: @spacing-unit * 14;   // 140px (despeja el header fijo)
+@section-padding-bottom: @spacing-unit * 9; // 90px
+@columns-gap: @spacing-unit * 6;            // 60px
+@card-padding: @spacing-unit * 4;           // 40px
+@card-radius: @spacing-unit * 1.2;          // 12px
+@field-radius: (@card-radius / 2);           // 6px
+@field-gap: @spacing-unit * 2;              // 20px
+@sede-gap: @spacing-unit * 2.2;             // 22px
+@fs-title: 64px;
+@fs-title-mobile: @fs-title * 0.65;         // ~42px
+
+// ------------------------------------------------------------------
+// MIXINS
+// ------------------------------------------------------------------
+
+// Tipografía condensada en mayúsculas (títulos y botón)
+.heading-font(@size; @weight: 700) {
+    font-family: @font-heading;
+    font-size: @size;
+    font-weight: @weight;
+    text-transform: uppercase;
+}
+
+// Campo de formulario oscuro sin borde marcado, con foco rojo
+.form-field(@bg: @color-input) {
+    width: 100%;
+    background-color: @bg;
+    border: 1px solid transparent;
+    border-radius: @field-radius;
+    padding: (@spacing-unit * 1.2) (@spacing-unit * 1.4); // 12px 14px
+    color: @color-white;
+    font-family: @font-body;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+
+    &::placeholder {
+        color: fade(@color-white, 40%);
+    }
+
+    &:focus {
+        border-color: @color-red;
+        background-color: lighten(@bg, 4%);
+    }
+}
+
+// ------------------------------------------------------------------
+// CONTENEDOR (misma convención que el resto de páginas: cada una
+// redeclara su propio .container)
+// ------------------------------------------------------------------
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 (@spacing-unit * 2); // 20px
+}
+
+// ------------------------------------------------------------------
+// SECCIÓN CONTACTO
+// ------------------------------------------------------------------
+.contacto-section {
+    background-color: @color-bg;
+    padding: @section-padding-top 0 @section-padding-bottom;
+}
+
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: @columns-gap;
+    align-items: start;
+}
+
+// ------------------------------------------------------------------
+// COLUMNA IZQUIERDA: título + sedes
+// ------------------------------------------------------------------
+.contacto-info {
+    .contacto-title {
+        .heading-font(@fs-title; 800);
+        color: @color-white;
+        line-height: 1;
+        letter-spacing: 1px;
+    }
+
+    .contacto-zigzag {
+        display: block;
+        margin: (@spacing-unit * 1.2) 0 (@spacing-unit * 3.5);
+    }
+}
+
+.sedes-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sede-item {
+    display: flex;
+    gap: @spacing-unit * 1.4;
+    padding: @sede-gap 0;
+    border-bottom: 1px solid @color-divider;
+
+    &:first-child {
+        padding-top: 0;
+    }
+
+    .sede-icon {
+        color: @color-icon;
+        font-size: 1.1rem;
+        margin-top: @spacing-unit * 0.3;
+        flex-shrink: 0;
+    }
+
+    .sede-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: @spacing-unit * 0.8;
+        margin-bottom: @spacing-unit * 0.6;
+    }
+
+    .sede-name {
+        .heading-font(1.1rem);
+        color: @color-white;
+        letter-spacing: 0.5px;
+    }
+
+    .sede-badge {
+        background-color: @color-badge;
+        color: @color-icon;
+        font-family: @font-body;
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        padding: (@spacing-unit * 0.3) (@spacing-unit * 0.8);
+        border-radius: @spacing-unit * 0.4;
+    }
+
+    .sede-address {
+        color: @color-text-muted;
+        font-family: @font-body;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+}
+
+.sedes-link {
+    display: inline-flex;
+    align-items: center;
+    gap: @spacing-unit * 0.6;
+    margin-top: @spacing-unit * 2.5;
+    color: @color-red;
+    .heading-font(0.95rem);
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: color 0.3s ease, gap 0.3s ease;
+
+    &:hover {
+        color: lighten(@color-red, 12%);
+        gap: @spacing-unit;
+    }
+}
+
+// ------------------------------------------------------------------
+// COLUMNA DERECHA: formulario en tarjeta
+// ------------------------------------------------------------------
+.contacto-card {
+    background-color: @color-card;
+    border-radius: @card-radius;
+    padding: @card-padding;
+
+    .form-title {
+        .heading-font(1.35rem);
+        color: @color-white;
+        text-align: center;
+        line-height: 1.3;
+        letter-spacing: 0.5px;
+        max-width: @spacing-unit * 42; // 420px
+        margin: 0 auto (@spacing-unit * 3);
+    }
+}
+
+.contacto-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: @field-gap;
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: @spacing-unit * 0.6;
+
+        &--full {
+            grid-column: 1 / -1;
+        }
+    }
+
+    label {
+        color: @color-label;
+        font-family: @font-body;
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+    }
+
+    input,
+    textarea {
+        .form-field();
+    }
+
+    textarea {
+        min-height: @spacing-unit * 15; // 150px
+        resize: vertical;
+        line-height: 1.5;
+
+        // Control de redimensión estilizado (Chrome / Edge / Safari)
+        &::-webkit-resizer {
+            background-color: @color-input;
+            border-right: 2px solid @color-red;
+            border-bottom: 2px solid @color-red;
+        }
+    }
+
+    .form-actions {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+.btn-enviar {
+    display: inline-flex;
+    align-items: center;
+    gap: @spacing-unit * 0.8;
+    background-color: @color-red;
+    color: @color-white;
+    .heading-font(0.95rem);
+    letter-spacing: 1px;
+    border: none;
+    border-radius: @field-radius;
+    padding: (@spacing-unit * 1.3) (@spacing-unit * 2.6); // 13px 26px
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+        background-color: darken(@color-red, 10%);
+        transform: translateY(-2px);
+    }
+}
+
+// ------------------------------------------------------------------
+// RESPONSIVE
+// ------------------------------------------------------------------
+@media (max-width: @bp-mobile-max) {
+    .contacto-section {
+        padding-top: @section-padding-top + (@spacing-unit * 6); // header apilado en móvil
+    }
+
+    .contacto-grid {
+        grid-template-columns: 1fr;
+        gap: @columns-gap * 0.75; // 45px
+    }
+
+    .contacto-info .contacto-title {
+        font-size: @fs-title-mobile;
+    }
+
+    .contacto-card {
+        padding: (@card-padding / 2); // 20px
+    }
+
+    .contacto-form {
+        grid-template-columns: 1fr;
+
+        .form-actions {
+            justify-content: stretch;
+        }
+    }
+
+    .btn-enviar {
+        width: 100%;
+        justify-content: center;
+    }
+}

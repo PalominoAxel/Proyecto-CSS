@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | INPELSA</title>
+    <!-- Fuentes e Iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Archivos de Estilos -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/contacto.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html">
+                <img src="img/logo/logo.svg" alt="INPELSA Logo" class="nav-logo">
+            </a>
+
+            <nav class="nav">
+                <div class="nav-item dropdown">
+                    <a href="nosotros.html" class="nav-link dropdown-toggle">Nosotros <span
+                            class="dropdown-caret">&#9662;</span></a>
+                    <div class="dropdown-menu">
+                        <a href="nosotros.html#quienes-somos" class="dropdown-link">¿Quiénes somos?</a>
+                        <a href="nosotros.html#sedes" class="dropdown-link">Nuestras sedes</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="lineas.html" class="nav-link dropdown-toggle">Líneas de Negocio <span
+                            class="dropdown-caret">&#9662;</span></a>
+                    <div class="dropdown-menu">
+                        <a href="lineas.html#beneficio" class="dropdown-link">Servicio de Beneficio</a>
+                        <a href="lineas.html#maquila" class="dropdown-link">Servicio de Maquila</a>
+                        <a href="lineas.html#importados" class="dropdown-link">Productos Importados</a>
+                        <a href="lineas.html#res-nacional" class="dropdown-link">Res Nacional</a>
+                        <a href="lineas.html#hamburguesas" class="dropdown-link">Hamburguesas</a>
+                        <a href="lineas.html#menudencia" class="dropdown-link">Menudencia</a>
+                    </div>
+                </div>
+                <a href="productos.html" class="nav-link">Productos</a>
+                <a href="marcas.html" class="nav-link">Marcas</a>
+                <a href="#" class="nav-link" onclick="goToSlide(1); return false;">
+                    <img src="img/logo/angus.jpg" alt="Angus" class="brand-icon"> Certified Angus Beef
+                </a>
+                <a href="#" class="nav-link" onclick="goToSlide(2); return false;">
+                    <img src="img/logo/barbaro.JPG" alt="Bárbaro" class="brand-icon"> Bárbaro
+                </a>
+                <a href="contacto.html" class="btn-contacto-nav">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SECCIÓN CONTACTO: sedes (izq.) + formulario (der.) -->
+    <section class="contacto-section" id="contacto">
+        <div class="container contacto-grid">
+
+            <!-- Columna izquierda: título e información de sedes -->
+            <div class="contacto-info">
+                <h1 class="contacto-title">Contacto</h1>
+                <svg class="contacto-zigzag" width="90" height="17" viewBox="0 0 90 17" aria-hidden="true"
+                    focusable="false">
+                    <polyline points="1,15 16,2 31,15 46,2 61,15 76,2 89,12" fill="none" stroke="#E31C25"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+
+                <!-- TODO: reemplazar las direcciones por las oficiales de cada sede -->
+                <ul class="sedes-list">
+                    <li class="sede-item">
+                        <i class="fas fa-map-marker-alt sede-icon" aria-hidden="true"></i>
+                        <div>
+                            <div class="sede-head">
+                                <span class="sede-name">Sede Lurín</span>
+                                <span class="sede-badge">CAMAL</span>
+                                <span class="sede-badge">Beneficio de res y cerdo</span>
+                            </div>
+                            <p class="sede-address">Lurín, Lima - Perú</p>
+                        </div>
+                    </li>
+                    <li class="sede-item">
+                        <i class="fas fa-map-marker-alt sede-icon" aria-hidden="true"></i>
+                        <div>
+                            <div class="sede-head">
+                                <span class="sede-name">Sede Surco</span>
+                                <span class="sede-badge">CARNE</span>
+                                <span class="sede-badge">Planta de procesos y almacén central</span>
+                            </div>
+                            <p class="sede-address">Santiago de Surco, Lima - Perú</p>
+                        </div>
+                    </li>
+                    <li class="sede-item">
+                        <i class="fas fa-map-marker-alt sede-icon" aria-hidden="true"></i>
+                        <div>
+                            <div class="sede-head">
+                                <span class="sede-name">Sede Yerbateros</span>
+                                <span class="sede-badge">CARNE</span>
+                                <span class="sede-badge">Maquila y corte nacional</span>
+                            </div>
+                            <p class="sede-address">San Luis, Lima - Perú</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <a href="nosotros.html#sedes" class="sedes-link">Conoce más sobre nuestras sedes
+                    <i class="fas fa-chevron-right" aria-hidden="true"></i></a>
+            </div>
+
+            <!-- Columna derecha: formulario en tarjeta -->
+            <div class="contacto-card">
+                <h2 class="form-title">Déjanos tus datos y nos comunicaremos a la brevedad</h2>
+
+                <form class="contacto-form" action="#" method="post">
+                    <div class="form-group">
+                        <label for="nombres">Nombres</label>
+                        <input type="text" id="nombres" name="nombres" placeholder="Juan" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidos">Apellidos</label>
+                        <input type="text" id="apellidos" name="apellidos" placeholder="Pérez" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="empresa">Nombre de la empresa</label>
+                        <input type="text" id="empresa" name="empresa" placeholder="Mi empresa S.A.C.">
+                    </div>
+                    <div class="form-group">
+                        <label for="ruc">RUC</label>
+                        <input type="text" id="ruc" name="ruc" placeholder="20123456789" inputmode="numeric"
+                            pattern="[0-9]{11}" maxlength="11">
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo</label>
+                        <input type="email" id="correo" name="correo" placeholder="nombre@mail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="987 654 321">
+                    </div>
+                    <div class="form-group form-group--full">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="6"
+                            placeholder="Hola, estoy interesado en..." required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-enviar">Enviar mensaje
+                            <i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+
+            <!-- Columna 1: Redes Sociales -->
+            <div class="footer-col col-social">
+                <h3 class="footer-title">PASIÓN POR LA CARNE</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/inpelsaperu/" target="_blank" rel="noopener" class="social-icon"
+                        aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@inpelsaperu" target="_blank" rel="noopener" class="social-icon"
+                        aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.linkedin.com/company/inpelsa-per%C3%BA/" target="_blank" rel="noopener"
+                        class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/InpelsaOficial/" target="_blank" rel="noopener"
+                        class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+
+            <!-- Columna 2: Nosotros -->
+            <div class="footer-col">
+                <h3 class="footer-title">NOSOTROS</h3>
+                <ul class="footer-list">
+                    <li><a href="nosotros.html#quienes-somos">QUIÉNES SOMOS</a></li>
+                    <li><a href="nosotros.html#sedes">NUESTRAS SEDES</a></li>
+                    <li><a href="blog.html">NOVEDADES</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Legales -->
+            <div class="footer-col">
+                <h3 class="footer-title">LEGALES</h3>
+                <ul class="footer-list">
+                    <li><a href="privacidad.html">POLÍTICAS DE PRIVACIDAD</a></li>
+                </ul>
+                <a href="libro-de-reclamaciones.html" class="libro-reclamaciones-btn">
+                    <img src="img/libro-reclamaciones.png" alt="Libro de Reclamaciones">
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Barra Inferior de Copyright -->
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>&copy; 2026 INPELSA</p>
+                <p>Diseñado por <strong>Estudiantes UTP</strong></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

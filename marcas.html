@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcas | INPELSA</title>
+    <!-- Fuentes (Raleway y los fallbacks de las tipografías comerciales) -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&family=Bebas+Neue&family=Oswald:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Archivos de Estilos -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/marcas.css">
+</head>
+
+<body class="marcas-page">
+
+    <!-- NAVBAR HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html">
+                <img src="img/logo/logo.svg" alt="INPELSA Logo" class="nav-logo">
+            </a>
+
+            <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav"
+                aria-label="Abrir menú">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <nav class="nav" id="mainNav">
+                <div class="nav-item dropdown">
+                    <a href="nosotros.html" class="nav-link dropdown-toggle">Nosotros <span
+                            class="dropdown-caret">&#9662;</span></a>
+                    <div class="dropdown-menu">
+                        <a href="nosotros.html#quienes-somos" class="dropdown-link">¿Quiénes somos?</a>
+                        <a href="nosotros.html#sedes" class="dropdown-link">Nuestras sedes</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="lineas.html" class="nav-link dropdown-toggle">Líneas de Negocio <span
+                            class="dropdown-caret">&#9662;</span></a>
+                    <div class="dropdown-menu">
+                        <a href="lineas.html#beneficio" class="dropdown-link">Servicio de Beneficio</a>
+                        <a href="lineas.html#maquila" class="dropdown-link">Servicio de Maquila</a>
+                        <a href="lineas.html#importados" class="dropdown-link">Productos Importados</a>
+                        <a href="lineas.html#res-nacional" class="dropdown-link">Res Nacional</a>
+                        <a href="lineas.html#hamburguesas" class="dropdown-link">Hamburguesas</a>
+                        <a href="lineas.html#menudencia" class="dropdown-link">Menudencia</a>
+                    </div>
+                </div>
+                <a href="productos.html" class="nav-link">Productos</a>
+                <a href="marcas.html" class="nav-link">Marcas</a>
+                <a href="#" class="nav-link" onclick="goToSlide(1); return false;">
+                    <img src="img/logo/angus.jpg" alt="Angus" class="brand-icon"> Certified Angus Beef
+                </a>
+                <a href="#" class="nav-link" onclick="goToSlide(2); return false;">
+                    <img src="img/logo/barbaro.JPG" alt="Bárbaro" class="brand-icon"> Bárbaro
+                </a>
+                <a href="contacto.html" class="btn-contacto-nav">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- BLOQUE A: MARCAS IMPORTADAS EXCLUSIVAS -->
+        <section id="marcas-importadas" class="marcas-block" aria-labelledby="titulo-importadas">
+            <div class="container">
+                <div class="section-header" data-animate>
+                    <span class="section-sub">CONOCE NUESTRAS</span>
+                    <h2 class="section-title" id="titulo-importadas">Marcas Importadas Exclusivas</h2>
+                    <svg class="section-zigzag" width="90" height="17" viewBox="0 0 90 17" aria-hidden="true"
+                        focusable="false">
+                        <polyline points="1,15 16,2 31,15 46,2 61,15 76,2 89,12" fill="none" stroke="var(--red)"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="brand-grid brand-grid--vertical" id="brandGridA"></div>
+            </div>
+        </section>
+
+        <!-- BLOQUE B: MARCAS EXCLUSIVAS (fila 1) -->
+        <section id="marcas-exclusivas-1" class="marcas-block marcas-block--fade-bg" aria-labelledby="titulo-exclusivas-1">
+            <div class="container">
+                <div class="section-header" data-animate>
+                    <span class="section-sub">CONOCE NUESTRAS</span>
+                    <h2 class="section-title" id="titulo-exclusivas-1">Marcas Exclusivas</h2>
+                    <svg class="section-zigzag" width="90" height="17" viewBox="0 0 90 17" aria-hidden="true"
+                        focusable="false">
+                        <polyline points="1,15 16,2 31,15 46,2 61,15 76,2 89,12" fill="none" stroke="var(--red)"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="brand-grid brand-grid--vertical" id="brandGridB"></div>
+            </div>
+        </section>
+
+        <!-- BLOQUE C: MARCAS EXCLUSIVAS (fila 2, tarjetas horizontales) -->
+        <section id="marcas-exclusivas-2" class="marcas-block" aria-labelledby="titulo-exclusivas-2">
+            <div class="container">
+                <div class="section-header" data-animate>
+                    <span class="section-sub">CONOCE NUESTRAS</span>
+                    <h2 class="section-title" id="titulo-exclusivas-2">Marcas Exclusivas</h2>
+                    <svg class="section-zigzag" width="90" height="17" viewBox="0 0 90 17" aria-hidden="true"
+                        focusable="false">
+                        <polyline points="1,15 16,2 31,15 46,2 61,15 76,2 89,12" fill="none" stroke="var(--red)"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="brand-stack" id="brandGridC"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer marcas-footer">
+        <!-- IMG: textura de humo de fondo del footer (background-image, ver css/marcas.css) -->
+        <div class="container footer-content">
+
+            <!-- Columna 1: Redes Sociales -->
+            <div class="footer-col col-social">
+                <h3 class="footer-title">PASIÓN POR LA CARNE</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/inpelsaperu/" target="_blank" rel="noopener"
+                        class="social-icon" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
+                            <rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor"
+                                stroke-width="1.6" />
+                            <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6" />
+                            <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" />
+                        </svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@inpelsaperu" target="_blank" rel="noopener" class="social-icon"
+                        aria-label="TikTok">
+                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
+                            <path
+                                d="M14 3v10.7a2.7 2.7 0 1 1-2-2.6V9a4.7 4.7 0 1 0 4 4.65V8.3a6 6 0 0 0 3.2 1V7.3A4 4 0 0 1 16 3h-2Z"
+                                fill="currentColor" />
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/inpelsa-per%C3%BA/" target="_blank" rel="noopener"
+                        class="social-icon" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
+                            <rect x="3" y="9" width="3.4" height="11" fill="currentColor" />
+                            <circle cx="4.7" cy="5" r="1.9" fill="currentColor" />
+                            <path
+                                d="M10.2 9h3.3v1.6h.05c.46-.83 1.6-1.7 3.3-1.7 3.5 0 4.15 2.15 4.15 4.95V20h-3.4v-5.4c0-1.3-.02-2.95-1.8-2.95-1.8 0-2.1 1.4-2.1 2.85V20h-3.4V9Z"
+                                fill="currentColor" />
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/InpelsaOficial/" target="_blank" rel="noopener"
+                        class="social-icon" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
+                            <path
+                                d="M14.5 21v-7.6h2.55l.38-2.96h-2.93V8.55c0-.86.24-1.44 1.47-1.44h1.57V4.46C17.2 4.4 16.26 4.3 15.16 4.3c-2.3 0-3.87 1.4-3.87 3.97v2.17H8.7v2.96h2.6V21h3.2Z"
+                                fill="currentColor" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Columna 2: Nosotros -->
+            <div class="footer-col">
+                <h3 class="footer-title">NOSOTROS</h3>
+                <ul class="footer-list">
+                    <li><a href="nosotros.html#quienes-somos">QUIÉNES SOMOS</a></li>
+                    <li><a href="nosotros.html#sedes">NUESTRAS SEDES</a></li>
+                    <li><a href="trabaja-con-nosotros.html">TRABAJA CON NOSOTROS</a></li>
+                    <li><a href="blog.html">NOVEDADES</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Legales -->
+            <div class="footer-col">
+                <h3 class="footer-title">LEGALES</h3>
+                <ul class="footer-list">
+                    <li><a href="privacidad.html">POLÍTICAS DE PRIVACIDAD</a></li>
+                </ul>
+                <a href="libro-de-reclamaciones.html" class="libro-reclamaciones-btn">
+                    <img src="img/libro-reclamaciones.png" alt="Libro de Reclamaciones">
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Barra Inferior de Copyright -->
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>&copy; 2025 INPELSA</p>
+                <p>Diseñado por <strong>dudesign.pe</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/brands.js"></script>
+    <script src="js/marcas.js"></script>
+</body>
+
+</html>

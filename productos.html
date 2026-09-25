@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos | INPELSA</title>
+    <!-- Fuentes e Iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Archivos de Estilos -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/productos.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html">
+                <img src="img/logo/logo.svg" alt="INPELSA Logo" class="nav-logo">
+            </a>
+
+            <nav class="nav">
+                <div class="nav-item dropdown">
+                    <a href="nosotros.html" class="nav-link dropdown-toggle">Nosotros <span
+                            class="dropdown-caret">&#9662;</span></a>
+                    <div class="dropdown-menu">
+                        <a href="nosotros.html#quienes-somos" class="dropdown-link">¿Quiénes somos?</a>
+                        <a href="nosotros.html#sedes" class="dropdown-link">Nuestras sedes</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="lineas.html" class="nav-link dropdown-toggle">Líneas de Negocio <span
+                            class="dropdown-caret">&#9662;</span></a>
+                    <div class="dropdown-menu">
+                        <a href="lineas.html#beneficio" class="dropdown-link">Servicio de Beneficio</a>
+                        <a href="lineas.html#maquila" class="dropdown-link">Servicio de Maquila</a>
+                        <a href="lineas.html#importados" class="dropdown-link">Productos Importados</a>
+                        <a href="lineas.html#res-nacional" class="dropdown-link">Res Nacional</a>
+                        <a href="lineas.html#hamburguesas" class="dropdown-link">Hamburguesas</a>
+                        <a href="lineas.html#menudencia" class="dropdown-link">Menudencia</a>
+                    </div>
+                </div>
+                <a href="productos.html" class="nav-link">Productos</a>
+                <a href="marcas.html" class="nav-link">Marcas</a>
+                <a href="#" class="nav-link" onclick="goToSlide(1); return false;">
+                    <img src="img/logo/angus.jpg" alt="Angus" class="brand-icon"> Certified Angus Beef
+                </a>
+                <a href="#" class="nav-link" onclick="goToSlide(2); return false;">
+                    <img src="img/logo/barbaro.JPG" alt="Bárbaro" class="brand-icon"> Bárbaro
+                </a>
+                <a href="contacto.html" class="btn-contacto-nav">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 1. BANNER SUPERIOR -->
+    <section class="productos-hero">
+        <div class="container hero-grid">
+            <div class="hero-left">
+                <span class="hero-sub">AMPLIO PORTAFOLIO</span>
+                <h1 class="hero-title">PRODUCTOS CÁRNICOS NACIONALES E IMPORTADOS</h1>
+                <span class="hero-wave">〰️</span>
+            </div>
+            <div class="hero-right hero-text">
+                <p>Contamos con un amplio portafolio de productos y variedad de proteína animal, permitiéndonos tener
+                    siempre mercadería disponible.</p>
+                <p>Tenemos más de 30 años en el mercado siendo referentes en el sector cárnico por nuestra calidad en
+                    los servicios y productos que ofrecemos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. GRILLA DE PRODUCTOS (2 filas, 7 tarjetas) -->
+    <section class="productos-section">
+        <div class="container">
+
+            <!-- Fila superior: 3 tarjetas anchas -->
+            <div class="productos-grid-top">
+                <article class="product-card" data-product="bovina">
+                    <img src="img/productos/bovina.JPG" alt="Carne bovina nacional refrigerada y congelada">
+                    <div class="product-overlay">
+                        <h3>Carne bovina nacional refrigerada y congelada</h3>
+                    </div>
+                </article>
+                <article class="product-card" data-product="porcino">
+                    <img src="img/productos/porcino.JPG" alt="Carne de Porcino nacional refrigerada y congelada">
+                    <div class="product-overlay">
+                        <h3>Carne de Porcino nacional refrigerada y congelada</h3>
+                    </div>
+                </article>
+                <article class="product-card" data-product="importada-congelada">
+                    <img src="img/productos/importada.JPG" alt="Carne Importada congelada">
+                    <div class="product-overlay">
+                        <h3>Carne Importada congelada</h3>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Fila inferior: 4 tarjetas -->
+            <div class="productos-grid-bottom">
+                <article class="product-card" data-product="importada-refrigerada">
+                    <img src="img/productos/refrigerada.JPG" alt="Carne Importada refrigerada">
+                    <div class="product-overlay">
+                        <h3>Carne Importada refrigerada</h3>
+                    </div>
+                </article>
+                <article class="product-card" data-product="ave">
+                    <img src="img/productos/ave.JPG" alt="Carne de ave Importada">
+                    <div class="product-overlay">
+                        <h3>Carne de ave Importada</h3>
+                    </div>
+                </article>
+                <article class="product-card" data-product="hamburguesa">
+                    <img src="img/productos/hamburguesa.JPG" alt="Hamburguesa">
+                    <div class="product-overlay">
+                        <h3>Hamburguesa</h3>
+                    </div>
+                </article>
+                <article class="product-card" data-product="menudencia">
+                    <img src="img/lineas/menudencia-1.JPG" alt="Menudencia">
+                    <div class="product-overlay">
+                        <h3>Menudencia</h3>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+
+            <!-- Columna 1: Redes Sociales -->
+            <div class="footer-col col-social">
+                <h3 class="footer-title">PASIÓN POR LA CARNE</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/inpelsaperu/" target="_blank" rel="noopener" class="social-icon"
+                        aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@inpelsaperu" target="_blank" rel="noopener" class="social-icon"
+                        aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.linkedin.com/company/inpelsa-per%C3%BA/" target="_blank" rel="noopener"
+                        class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/InpelsaOficial/" target="_blank" rel="noopener"
+                        class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+
+            <!-- Columna 2: Nosotros -->
+            <div class="footer-col">
+                <h3 class="footer-title">NOSOTROS</h3>
+                <ul class="footer-list">
+                    <li><a href="nosotros.html#quienes-somos">QUIÉNES SOMOS</a></li>
+                    <li><a href="nosotros.html#sedes">NUESTRAS SEDES</a></li>
+                    <li><a href="trabaja-con-nosotros.html">TRABAJA CON NOSOTROS</a></li>
+                    <li><a href="blog.html">NOVEDADES</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Legales -->
+            <div class="footer-col">
+                <h3 class="footer-title">LEGALES</h3>
+                <ul class="footer-list">
+                    <li><a href="privacidad.html">POLÍTICAS DE PRIVACIDAD</a></li>
+                </ul>
+                <a href="libro-de-reclamaciones.html" class="libro-reclamaciones-btn">
+                    <img src="img/libro-reclamaciones.png" alt="Libro de Reclamaciones">
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Barra Inferior de Copyright -->
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>&copy; 2026 INPELSA</p>
+                <p>Diseñado por <strong>Estudiantes UTP</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL DE PRODUCTO -->
+    <div class="product-modal" id="productModal" aria-hidden="true">
+        <div class="product-modal-overlay" data-modal-close></div>
+        <div class="product-modal-content" role="dialog" aria-modal="true" aria-labelledby="productModalTitle">
+            <button type="button" class="product-modal-close" data-modal-close aria-label="Cerrar">&times;</button>
+            <div class="product-modal-image">
+                <img id="productModalImg" src="" alt="">
+            </div>
+            <div class="product-modal-body">
+                <h3 class="product-modal-title" id="productModalTitle"></h3>
+                <span class="product-modal-subtitle">CONOCE NUESTRA VARIEDAD</span>
+                <hr class="product-modal-divider">
+                <ul class="product-modal-list" id="productModalList"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/productos.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,374 @@
+/* =====================================================================
+   INPELSA - productos.less
+   -----------------------------------------------------------------
+   Hoja de estilos de la página "Productos" (banner + grilla asimétrica
+   de 7 tarjetas). Se compila a css/productos.css con:
+
+       lessc less/productos.less css/productos.css
+
+   Complementa a css/global.css (navbar, footer y botones ya
+   compartidos por el resto del sitio), no lo reemplaza.
+   ===================================================================== */
+
+// ------------------------------------------------------------------
+// VARIABLES
+// ------------------------------------------------------------------
+@color-primary: #E31B23;
+@color-dark: #0d0d0d;
+@color-dark-alt: #121212;
+@color-white: #ffffff;
+@color-text-muted: #bbbbbb;
+
+@spacing-unit: 10px;
+
+// ------------------------------------------------------------------
+// OPERACIONES MATEMÁTICAS
+// El resto de espaciados/alturas se calculan a partir de @spacing-unit
+// en lugar de escribir cada valor a mano.
+// ------------------------------------------------------------------
+@hero-padding-top: @spacing-unit * 12;      // 120px
+@hero-padding-bottom: @spacing-unit * 6;    // 60px
+@card-gap: @spacing-unit * 2;               // 20px
+@card-radius: @spacing-unit * 0.8;          // 8px
+@card-height-top: @spacing-unit * 34;       // 340px (fila superior, tarjetas más altas)
+@card-height-bottom: @card-height-top - (@spacing-unit * 8); // 260px (fila inferior)
+@grid-margin-top: @card-gap * 1.5;          // 30px
+@section-padding-bottom: @spacing-unit * 9; // 90px
+@overlay-opacity: 0.85;
+
+@modal-radius: @card-radius * 1.5;          // 12px
+@modal-max-width: @spacing-unit * 55;       // 550px
+@modal-image-height: @spacing-unit * 24;    // 240px
+@modal-overlay-opacity: 0.75;
+
+// ------------------------------------------------------------------
+// MIXINS
+// ------------------------------------------------------------------
+
+// Grilla reutilizable: recibe el número de columnas de cada fila
+.product-grid(@cols) {
+    display: grid;
+    grid-template-columns: repeat(@cols, 1fr);
+    gap: @card-gap;
+}
+
+// Overlay de gradiente oscuro inferior para legibilidad del título
+.gradient-overlay(@opacity: @overlay-opacity) {
+    background: linear-gradient(transparent, rgba(0, 0, 0, @opacity));
+}
+
+// Efecto hover: escala progresiva + sombra
+.card-hover-effect(@scale: 1.06) {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+    &:hover {
+        transform: scale(@scale);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.55);
+    }
+}
+
+// Transición de aparición/cierre del modal (overlay + contenido)
+.modal-fade(@duration: 0.25s) {
+    transition: opacity @duration ease, visibility @duration ease;
+}
+
+// ------------------------------------------------------------------
+// CONTENEDOR (misma convención que css/lineas.css y css/nosotros.css:
+// cada página redeclara su propio .container)
+// ------------------------------------------------------------------
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 @spacing-unit * 2; // 20px
+}
+
+// ------------------------------------------------------------------
+// 1. BANNER SUPERIOR
+// ------------------------------------------------------------------
+.productos-hero {
+    padding: @hero-padding-top 0 @hero-padding-bottom;
+    background-color: @color-dark;
+
+    .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: @card-gap * 2; // 40px
+        align-items: center;
+    }
+
+    .hero-sub {
+        display: block;
+        color: @color-primary;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: @spacing-unit;
+    }
+
+    .hero-title {
+        font-family: 'Oswald', 'Arial Narrow', sans-serif;
+        font-size: 2.6rem;
+        font-weight: 800;
+        color: @color-white;
+        text-transform: uppercase;
+        line-height: 1.2;
+    }
+
+    .hero-wave {
+        display: block;
+        color: @color-primary;
+        font-size: 1.3rem;
+        margin-top: @spacing-unit * 1.8; // 18px
+    }
+
+    .hero-text {
+        color: @color-text-muted;
+        font-size: 0.95rem;
+        line-height: 1.7;
+
+        p {
+            margin-bottom: @spacing-unit * 1.5; // 15px
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+// ------------------------------------------------------------------
+// 2. GRILLA ASIMÉTRICA DE PRODUCTOS (2 filas, 7 tarjetas)
+// ------------------------------------------------------------------
+.productos-section {
+    background-color: @color-dark;
+    padding-bottom: @section-padding-bottom;
+}
+
+.productos-grid-top {
+    .product-grid(3);
+    margin-top: @grid-margin-top;
+}
+
+.productos-grid-bottom {
+    .product-grid(4);
+    margin-top: @card-gap;
+}
+
+.product-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: @card-radius;
+    background-color: @color-dark-alt;
+    height: @card-height-top;
+    .card-hover-effect();
+
+    // Las tarjetas de la fila inferior son más bajas (4 columnas angostas)
+    .productos-grid-bottom & {
+        height: @card-height-bottom;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .product-overlay {
+        position: absolute;
+        inset: 0;
+        .gradient-overlay();
+        display: flex;
+        align-items: flex-end;
+        padding: @spacing-unit * 1.5;
+
+        h3 {
+            color: @color-white;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.95rem;
+            line-height: 1.3;
+            margin: 0;
+        }
+    }
+}
+
+// ------------------------------------------------------------------
+// 3. MODAL DE PRODUCTO
+// ------------------------------------------------------------------
+.product-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: @card-gap;
+    opacity: 0;
+    visibility: hidden;
+    .modal-fade();
+
+    &.is-open {
+        opacity: 1;
+        visibility: visible;
+
+        .product-modal-content {
+            transform: translateY(0);
+        }
+    }
+
+    &-overlay {
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, @modal-overlay-opacity);
+    }
+
+    &-content {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: @modal-max-width;
+        max-height: 85vh;
+        overflow-y: auto;
+        background-color: @color-dark-alt;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: @modal-radius;
+        transform: translateY(20px);
+        transition: transform 0.3s ease;
+    }
+
+    &-close {
+        position: absolute;
+        top: @spacing-unit;
+        right: @spacing-unit;
+        z-index: 2;
+        width: @spacing-unit * 3.2; // 32px
+        height: @spacing-unit * 3.2;
+        border-radius: 50%;
+        border: none;
+        background-color: rgba(0, 0, 0, 0.55);
+        color: @color-white;
+        font-size: 1.4rem;
+        line-height: 1;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: @color-primary;
+        }
+    }
+
+    &-image {
+        height: @modal-image-height;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: @modal-radius @modal-radius 0 0;
+        }
+    }
+
+    &-body {
+        padding: @spacing-unit * 2.5; // 25px
+    }
+
+    &-title {
+        color: @color-white;
+        font-family: 'Oswald', 'Arial Narrow', sans-serif;
+        font-size: 1.3rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        line-height: 1.3;
+        margin-bottom: @spacing-unit;
+    }
+
+    &-subtitle {
+        display: block;
+        color: @color-primary;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+    }
+
+    &-divider {
+        border: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        margin: @spacing-unit 0 (@spacing-unit * 1.5);
+    }
+
+    &-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            position: relative;
+            padding-left: @spacing-unit * 1.4;
+            margin-bottom: @spacing-unit * 0.8;
+            color: @color-text-muted;
+            font-size: 0.9rem;
+            line-height: 1.5;
+
+            &::before {
+                content: '•';
+                position: absolute;
+                left: 0;
+                color: @color-primary;
+            }
+        }
+    }
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+// ------------------------------------------------------------------
+// RESPONSIVE
+// ------------------------------------------------------------------
+@media (max-width: 992px) {
+    .productos-hero .hero-grid {
+        grid-template-columns: 1fr;
+        gap: @card-gap;
+    }
+
+    .productos-grid-top,
+    .productos-grid-bottom {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .productos-hero {
+        padding: @hero-padding-bottom * 1.5 0 @hero-padding-bottom;
+
+        .hero-title {
+            font-size: 1.8rem;
+        }
+    }
+
+    .productos-grid-top,
+    .productos-grid-bottom {
+        grid-template-columns: 1fr;
+    }
+
+    .product-card,
+    .productos-grid-bottom .product-card {
+        height: @card-height-bottom;
+    }
+
+    .product-modal {
+        &-image {
+            height: @modal-image-height - (@spacing-unit * 6); // 180px
+        }
+
+        &-body {
+            padding: @spacing-unit * 2; // 20px
+        }
+    }
+}

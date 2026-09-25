@@ -1,0 +1,228 @@
+/* =====================================================================
+   INPELSA - contacto.less
+   -----------------------------------------------------------------
+   Hoja de estilos de la página "Contacto" (sedes + formulario).
+   Se compila a css/contacto.css con:
+
+       lessc less/contacto.less css/contacto.css
+
+   Complementa a css/global.css (navbar y footer compartidos por el
+   resto del sitio), no lo reemplaza.
+   ===================================================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.contacto-section {
+  background-color: #0c0c0c;
+  padding: 140px 0 90px;
+}
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 60px;
+  align-items: start;
+}
+.contacto-info .contacto-title {
+  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+  font-size: 64px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+.contacto-info .contacto-zigzag {
+  display: block;
+  margin: 12px 0 35px;
+}
+.sedes-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sede-item {
+  display: flex;
+  gap: 14px;
+  padding: 22px 0;
+  border-bottom: 1px solid #222222;
+}
+.sede-item:first-child {
+  padding-top: 0;
+}
+.sede-item .sede-icon {
+  color: #c8c8c8;
+  font-size: 1.1rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+.sede-item .sede-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.sede-item .sede-name {
+  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+.sede-item .sede-badge {
+  background-color: #2a2a2a;
+  color: #c8c8c8;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.sede-item .sede-address {
+  color: #9a9a9a;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.sedes-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 25px;
+  color: #E31C25;
+  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: color 0.3s ease, gap 0.3s ease;
+}
+.sedes-link:hover {
+  color: #ea5259;
+  gap: 10px;
+}
+.contacto-card {
+  background-color: #242424;
+  border-radius: 12px;
+  padding: 40px;
+}
+.contacto-card .form-title {
+  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.3;
+  letter-spacing: 0.5px;
+  max-width: 420px;
+  margin: 0 auto 30px;
+}
+.contacto-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.contacto-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.contacto-form .form-group--full {
+  grid-column: 1 / -1;
+}
+.contacto-form label {
+  color: #E8D9B5;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+.contacto-form input,
+.contacto-form textarea {
+  width: 100%;
+  background-color: #3a3a3a;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 12px 14px;
+  color: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+.contacto-form input::placeholder,
+.contacto-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+.contacto-form input:focus,
+.contacto-form textarea:focus {
+  border-color: #E31C25;
+  background-color: #444444;
+}
+.contacto-form textarea {
+  min-height: 150px;
+  resize: vertical;
+  line-height: 1.5;
+}
+.contacto-form textarea::-webkit-resizer {
+  background-color: #3a3a3a;
+  border-right: 2px solid #E31C25;
+  border-bottom: 2px solid #E31C25;
+}
+.contacto-form .form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+}
+.btn-enviar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #E31C25;
+  color: #ffffff;
+  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 6px;
+  padding: 13px 26px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.btn-enviar:hover {
+  background-color: #b6161e;
+  transform: translateY(-2px);
+}
+@media (max-width: 767px) {
+  .contacto-section {
+    padding-top: 200px;
+  }
+  .contacto-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+  .contacto-info .contacto-title {
+    font-size: 41.6px;
+  }
+  .contacto-card {
+    padding: 20px;
+  }
+  .contacto-form {
+    grid-template-columns: 1fr;
+  }
+  .contacto-form .form-actions {
+    justify-content: stretch;
+  }
+  .btn-enviar {
+    width: 100%;
+    justify-content: center;
+  }
+}

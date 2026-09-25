@@ -1,0 +1,45 @@
+
+// Variables
+@color-primary: #ff1d1d;
+@color-dark: #0d0d0d;
+@color-white: #ffffff;
+@spacing-base: 16px;
+
+// Mixin reutilizable (con parámetro y valor por defecto)
+.button-style(@bg: @color-primary, @text: @color-white) {
+    background-color: @bg;
+    color: @text;
+    border: none;
+    border-radius: 4px;
+    padding: (@spacing-base / 2) @spacing-base;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: darken(@bg, 10%);
+    }
+}
+
+// Anidamiento de selectores
+.navbar {
+    background-color: @color-dark;
+    padding: @spacing-base;
+
+    .nav-link {
+        color: @color-white;
+        text-decoration: none;
+
+        &:hover {
+            color: @color-primary;
+        }
+    }
+
+    .btn-contacto {
+        .button-style();
+    }
+}
+
+// Operaciones matemáticas con variables
+.card {
+    width: @spacing-base * 20;
+    margin-bottom: @spacing-base / 2;
+}
