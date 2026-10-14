@@ -42,6 +42,23 @@
   font-family: "Oswald", "Arial Narrow", sans-serif;
 }
 
+/* ------------------------------------------------------------------ *
+ * TEMA: FRAMEWORKS CSS (Bootstrap)
+ * Bootstrap Reboot redefine body/h1-h6/p/a con selectores de tipo
+ * (más específicos que el "*" de arriba), lo que cambiaría márgenes,
+ * tipografía y color de los enlaces del diseño original. Estas reglas
+ * reinstauran ese reset con la MISMA especificidad que usa Reboot,
+ * así el diseño existente no se ve afectado al cargar Bootstrap.
+ * ------------------------------------------------------------------ */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, dl, figure, blockquote {
+  margin: 0;
+  font-family: "Oswald", "Arial Narrow", sans-serif;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -115,7 +132,17 @@ img {
   display: inline-block;
   transition: transform 0.3s ease, color 0.3s ease;
 }
+/* Bootstrap agrega su propio triángulo a ".dropdown-toggle::after"; este
+   menú ya tiene su propio caret (span.dropdown-caret), así que se anula. */
+.nav-link.dropdown-toggle::after {
+  display: none;
+  content: none;
+}
 .nav-item .dropdown-menu {
+  /* Bootstrap define ".dropdown-menu { display: none; }" para su propio
+     componente; este menú (hover/focus-within) es distinto y usa la misma
+     clase, así que se fuerza "display: block" para que no quede oculto. */
+  display: block;
   position: absolute;
   top: calc(100% + 14px);
   left: 0;
@@ -150,20 +177,58 @@ img {
   color: var(--dropdown-accent);
   padding-left: 28px;
 }
-.nav-item:hover .dropdown-caret, .nav-item:focus-within .dropdown-caret {
-  transform: rotate(180deg);
-  color: var(--dropdown-accent);
-}
-.nav-item:hover .dropdown-menu, .nav-item:focus-within .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+/* Despliegue por :hover/:focus-within SOLO en escritorio; en móvil el
+   submenú se abre con un clic (ver .nav-item.dropdown-open más abajo
+   y js/nav-mobile.js), porque el hover no existe en pantallas táctiles. */
+@media (min-width: 993px) {
+  .nav-item:hover .dropdown-caret, .nav-item:focus-within .dropdown-caret {
+    transform: rotate(180deg);
+    color: var(--dropdown-accent);
+  }
+  .nav-item:hover .dropdown-menu, .nav-item:focus-within .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
 }
 
 .brand-icon {
   height: 22px;
   width: auto;
   object-fit: contain;
+}
+
+/* ------------------------------------------------------------------ *
+ * BOTÓN HAMBURGUESA (solo visible en móvil, ver media query 992px)
+ * ------------------------------------------------------------------ */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+.nav-toggle-bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-white);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.nav-toggle.is-open .nav-toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle.is-open .nav-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.is-open .nav-toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* ------------------------------------------------------------------ *
@@ -229,39 +294,92 @@ img {
   margin-top: 15px;
 }
 
-/* RESPONSIVE NAVBAR */
+/* RESPONSIVE NAVBAR
+   En móvil solo quedan visibles el logo (izquierda) y el botón
+   hamburguesa (derecha); el resto del menú se oculta dentro de un
+   panel desplegable que se abre al tocar la hamburguesa. */
 @media (max-width: 992px) {
   .header-container {
-    flex-direction: column;
-    height: auto;
-    padding: 15px;
-    gap: 12px;
+    height: 70px;
+    padding: 0 16px;
+  }
+  .nav-toggle {
+    display: flex;
   }
   .nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    /* Bootstrap define ".nav { flex-wrap: wrap; }"; con flex-direction:
+       column eso hacía que, al abrirse un submenú y crecer la altura,
+       los siguientes enlaces "saltaran" a una nueva columna a la derecha
+       en vez de simplemente desplazarse hacia abajo. Se fuerza nowrap. */
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 0;
+    background-color: var(--dropdown-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.3s ease;
+  }
+  .nav.is-open {
+    max-height: 80vh;
+    opacity: 1;
+    overflow-y: auto;
+    padding: 12px 20px 20px;
+  }
+  .nav > a,
+  .nav > .nav-item {
+    width: 100%;
   }
   .nav-link {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    padding: 12px 0;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .btn-contacto-nav {
+    display: inline-block;
+    margin: 10px 0;
+  }
+
+  /* Submenú "Nosotros" / "Líneas de Negocio": colapsado por defecto,
+     se expande con la clase ".dropdown-open" que agrega js/nav-mobile.js
+     al tocar el enlace (no existe :hover en pantallas táctiles). */
+  .nav-item .dropdown-caret {
+    transition: transform 0.3s ease;
+  }
+  .nav-item.dropdown-open .dropdown-caret {
+    transform: rotate(180deg);
   }
   .nav-item .dropdown-menu {
-    left: 50%;
-    transform: translate(-50%, 12px);
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    border-left: 2px solid var(--border-color);
+    background: transparent;
+    margin: 0 0 0 10px;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
   }
-  .nav-item:hover .dropdown-menu, .nav-item:focus-within .dropdown-menu {
-    transform: translate(-50%, 0);
+  .nav-item.dropdown-open .dropdown-menu {
+    max-height: 400px;
+    margin: 6px 0 10px 10px;
   }
 }
 @media (max-width: 480px) {
   .header-container {
-    padding: 12px;
-  }
-  .nav {
-    gap: 8px;
-  }
-  .nav-link {
-    font-size: 0.78rem;
+    padding: 0 12px;
   }
   .btn-contacto-nav {
     padding: 8px 16px;
@@ -379,10 +497,10 @@ section[id] {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* TEMA: FRAMEWORKS CSS (Bootstrap) — el grid de 3 columnas del footer
+   (compartido por las 6 páginas) ahora usa las clases "row"/"col-*" de
+   Bootstrap en el HTML; aquí solo quedan los espaciados propios. */
 .footer-content {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 40px;
   padding-bottom: 50px;
 }
 
@@ -456,7 +574,7 @@ section[id] {
 
 .libro-reclamaciones-btn {
   display: inline-block;
-  margin-top: 15px;
+  margin: 15px 0 24px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 6px;
   padding: 4px;
@@ -492,10 +610,6 @@ section[id] {
 
 /* RESPONSIVE FOOTER */
 @media (max-width: 768px) {
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 35px;
-  }
   .footer-bottom-content {
     flex-direction: column;
     gap: 10px;

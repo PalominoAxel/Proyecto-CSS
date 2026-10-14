@@ -1,11 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bárbaro | Hamburguesas Bárbaro</title>
+    <link rel="icon" type="image/svg+xml" href="img/logo/logo.svg">
+    <meta name="description" content="Bárbaro, marca peruana de carne de res para hamburguesas de INPELSA.">
+    <!-- Fuentes: --font-display (Unbounded), --font-condensed (Bebas Neue), --font-body (Space Grotesk) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Página independiente: NO carga css/global.css ni el navbar/footer del sitio principal -->
+    <link rel="stylesheet" href="css/barbaro.css">
 </head>
+
 <body>
-    
+
+    <!-- HEADER PROPIO DE BÁRBARO (distinto del header global del sitio) -->
+    <header class="bb-header">
+        <div class="bb-header-inner">
+            <a href="index.html" class="bb-logo-link" aria-label="Ir al sitio de INPELSA">
+                <!-- PLACEHOLDER: logo "BĀRBARO" crema/amarillo ~128x45px -->
+                <img src="img/barbaro/logo-header.png" alt="Bárbaro" class="bb-logo" width="128" height="45">
+            </a>
+
+            <button type="button" class="bb-nav-toggle" id="bbNavToggle" aria-expanded="false" aria-controls="bbNav"
+                aria-label="Abrir menú">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="bb-nav" id="bbNav">
+                <a href="#quienes-somos" class="bb-nav-link">Quiénes somos</a>
+                <a href="#productos" class="bb-nav-link">Productos</a>
+                <a href="#puntos-de-venta" class="bb-nav-link">Puntos de venta</a>
+                <div class="bb-social">
+                    <a href="https://www.instagram.com/inpelsaperu/" target="_blank" rel="noopener" class="bb-social-icon" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+                            <rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="1.6" />
+                            <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6" />
+                            <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" />
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/InpelsaOficial/" target="_blank" rel="noopener" class="bb-social-icon" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+                            <path d="M14.5 21v-7.6h2.55l.38-2.96h-2.93V8.55c0-.86.24-1.44 1.47-1.44h1.57V4.46C17.2 4.4 16.26 4.3 15.16 4.3c-2.3 0-3.87 1.4-3.87 3.97v2.17H8.7v2.96h2.6V21h3.2Z" fill="currentColor" />
+                        </svg>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <!-- PLACEHOLDER: img/barbaro/hero.jpg (foto horizontal, collage de personas mordiendo hamburguesas) -->
+        <section class="bb-hero" style="background-image: url('img/barbaro/hero.jpg');" aria-label="Bárbaro hamburguesas"></section>
+
+        <!-- TARJETA DE PRESENTACIÓN -->
+        <section class="bb-intro" id="quienes-somos">
+            <div class="bb-card">
+                <h1 class="bb-card-logo">
+                    <!-- PLACEHOLDER: img/barbaro/logo-grande.png (logo rojo ~374x130px) -->
+                    <img src="img/barbaro/logo-grande.png" alt="Bárbaro" width="374" height="130">
+                </h1>
+
+                <div class="bb-heading-block">
+                    <p class="bb-eyebrow">Carnes de res para</p>
+                    <p class="bb-headline">Hamburguesas</p>
+                    <p class="bb-subheadline">Hechas para amigos</p>
+
+                    <!-- PLACEHOLDER: img/barbaro/sello-producto-peruano.png (~224x141px) -->
+                    <img src="img/barbaro/sello-producto-peruano.png" alt="Sello Producto Peruano" class="bb-seal" loading="lazy">
+                </div>
+
+                <div class="bb-copy">
+                    <p>Somos una nueva <strong>marca peruana</strong> de carne de res para hamburguesas creada para
+                        hacer tus parrillas siempre ricas, fáciles y de calidad.</p>
+                    <p>Descubre una experiencia divertida y auténtica de reunir amigos alrededor de una hamburguesa
+                        increíblemente rica, elaborada con ingredientes de calidad que garantizan siempre el mejor
+                        sabor.</p>
+                    <p>Queremos que cada encuentro sea inolvidable, ofreciendo productos que hagan que cada momento
+                        sea perfecto, sin complicaciones.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN ROJA: PRODUCTOS + PUNTOS DE VENTA -->
+        <section class="bb-products" id="productos">
+            <h2 class="bb-section-title">Nuestros productos</h2>
+
+            <div class="bb-products-grid">
+                <article class="bb-product">
+                    <div class="bb-product-card">
+                        <!-- PLACEHOLDER: img/barbaro/producto-parrillera.png (~380x341px) -->
+                        <img src="img/barbaro/producto-parrillera.png" alt="Empaque de Hamburguesa Parrillera Bárbaro" width="380" height="341" loading="lazy">
+                    </div>
+                    <p class="bb-product-label">Hamburguesa</p>
+                    <p class="bb-product-name">Parrillera</p>
+                </article>
+
+                <article class="bb-product">
+                    <div class="bb-product-card">
+                        <!-- PLACEHOLDER: img/barbaro/producto-angus.png (~380x341px) -->
+                        <img src="img/barbaro/producto-angus.png" alt="Empaque de Hamburguesa Angus Bárbaro" width="380" height="341" loading="lazy">
+                    </div>
+                    <p class="bb-product-label">Hamburguesa</p>
+                    <p class="bb-product-name">Angus</p>
+                </article>
+            </div>
+
+            <div class="bb-store-box" id="puntos-de-venta">
+                <h2 class="bb-section-title bb-store-title">Encuéntranos en</h2>
+                <div class="bb-store-logos">
+                    <a href="#" target="_blank" rel="noopener" class="bb-store-logo" aria-label="Plaza Vea">
+                        <!-- PLACEHOLDER: img/barbaro/logo-plaza-vea.png -->
+                        <img src="img/barbaro/logo-plaza-vea.png" alt="Plaza Vea" width="56" height="56" loading="lazy">
+                    </a>
+                    <a href="#" target="_blank" rel="noopener" class="bb-store-logo bb-store-logo--full" aria-label="Wong">
+                        <!-- PLACEHOLDER: img/barbaro/logo-wong.png (el logo ya trae su propio círculo, por eso llena casi todo el contenedor) -->
+                        <img src="img/barbaro/logo-wong.png" alt="Wong" width="56" height="56" loading="lazy">
+                    </a>
+                    <a href="#" target="_blank" rel="noopener" class="bb-store-logo" aria-label="Vivanda">
+                        <!-- PLACEHOLDER: img/barbaro/logo-vivanda.png -->
+                        <img src="img/barbaro/logo-vivanda.png" alt="Vivanda" width="56" height="56" loading="lazy">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FRANJA "MARCA EXCLUSIVA DE INPELSA" -->
+        <section class="bb-exclusive">
+            <p class="bb-exclusive-text">
+                Bárbaro es una marca exclusiva de
+                <a href="index.html" class="bb-inpelsa-link" aria-label="Ir al sitio de INPELSA">
+                    <img src="img/logo/logo.svg" alt="INPELSA" width="48" height="64" loading="lazy">
+                </a>
+            </p>
+            <div class="bb-divider"></div>
+        </section>
+    </main>
+
+    <!-- FOOTER PROPIO DE BÁRBARO -->
+    <footer class="bb-footer">
+        <div class="bb-footer-inner">
+            <div class="bb-footer-left">
+                <a href="https://www.instagram.com/inpelsaperu/" target="_blank" rel="noopener" class="bb-footer-icon" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                        <rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="1.6" />
+                        <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6" />
+                        <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" />
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/InpelsaOficial/" target="_blank" rel="noopener" class="bb-footer-icon" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                        <path d="M14.5 21v-7.6h2.55l.38-2.96h-2.93V8.55c0-.86.24-1.44 1.47-1.44h1.57V4.46C17.2 4.4 16.26 4.3 15.16 4.3c-2.3 0-3.87 1.4-3.87 3.97v2.17H8.7v2.96h2.6V21h3.2Z" fill="currentColor" />
+                    </svg>
+                </a>
+                <span class="bb-footer-copy">&copy; 2026 BÁRBARO.</span>
+            </div>
+            <div class="bb-footer-right">
+                Diseñado por <strong>Estudiantes UTP</strong>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/barbaro.js" defer></script>
 </body>
+
 </html>

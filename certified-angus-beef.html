@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certified Angus Beef® | INPELSA</title>
+    <link rel="icon" type="image/svg+xml" href="img/logo/logo.svg">
+    <meta name="description" content="Certified Angus Beef®, la mejor carne Angus del mundo. INPELSA es su único distribuidor licenciado en el Perú.">
+    <!-- Fuentes: Oswald (navbar/botones/eyebrow, ya usada en el sitio), Open Sans (párrafos),
+         Raleway ligera (lista de especificaciones). "Braxton" y "Klinic Slab/Book" son fuentes
+         personalizadas de la referencia que no están en el proyecto: se sustituyen por
+         Playball (script) y Zilla Slab (slab serif) de Google Fonts — avisar si se quiere cambiar. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Open+Sans:wght@400;600;700&family=Raleway:wght@300;400&family=Zilla+Slab:ital,wght@0,400;0,600;0,700;1,600&family=Playball&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Framework CSS: Bootstrap 5 (grid y componentes puntuales; ver DOCUMENTACION_CAMBIOS.md) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Archivos de Estilos -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/certified-angus-beef.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR GLOBAL (igual a la del resto del sitio, sin cambios) -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html">
+                <img src="img/logo/logo.svg" alt="INPELSA Logo" class="nav-logo">
+            </a>
+
+            <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav"
+                aria-label="Abrir menú">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <nav class="nav" id="mainNav">
+                <div class="nav-item dropdown">
+                    <a href="nosotros.html" class="nav-link dropdown-toggle">Nosotros <span
+                            class="dropdown-caret">&#9662;</span></a>
+                    <div class="dropdown-menu">
+                        <a href="nosotros.html#quienes-somos" class="dropdown-link">¿Quiénes somos?</a>
+                        <a href="nosotros.html#sedes" class="dropdown-link">Nuestras sedes</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="lineas.html" class="nav-link dropdown-toggle">Líneas de Negocio <span
+                            class="dropdown-caret">&#9662;</span></a>
+                    <div class="dropdown-menu">
+                        <a href="lineas.html#beneficio" class="dropdown-link">Servicio de Beneficio</a>
+                        <a href="lineas.html#maquila" class="dropdown-link">Servicio de Maquila</a>
+                        <a href="lineas.html#importados" class="dropdown-link">Productos Importados</a>
+                        <a href="lineas.html#res-nacional" class="dropdown-link">Res Nacional</a>
+                        <a href="lineas.html#hamburguesas" class="dropdown-link">Hamburguesas</a>
+                        <a href="lineas.html#menudencia" class="dropdown-link">Menudencia</a>
+                    </div>
+                </div>
+                <a href="productos.html" class="nav-link">Productos</a>
+                <a href="marcas.html" class="nav-link">Marcas</a>
+                <div class="nav-item dropdown">
+                    <a href="certified-angus-beef.html" class="nav-link dropdown-toggle">
+                        <img src="img/logo/angus.jpg" alt="Angus" class="brand-icon"> Certified Angus Beef <span
+                            class="dropdown-caret">&#9662;</span></a>
+                    <div class="dropdown-menu">
+                        <a href="certified-angus-beef.html#quienes-somos" class="dropdown-link">Quiénes somos</a>
+                        <a href="certified-angus-beef.html#10-especificaciones" class="dropdown-link">10 Especificaciones</a>
+                        <a href="certified-angus-beef.html#clientes-licenciados" class="dropdown-link">Clientes licenciados</a>
+                    </div>
+                </div>
+                <a href="barbaro.html" class="nav-link">
+                    <img src="img/logo/barbaro.JPG" alt="Bárbaro" class="brand-icon"> Bárbaro
+                </a>
+                <a href="contacto.html" class="btn-contacto-nav">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO: "La única carne GARANTIZADA POR SU SABOR" -->
+        <section class="cab-hero">
+            <div class="cab-hero-overlay"></div>
+
+            <div class="cab-hero-content">
+                <h1 class="cab-hero-heading cab-intro cab-intro-1">
+                    <span class="cab-hero-script">La única carne</span>
+                    <span class="cab-hero-slab cab-gold">GARANTIZADA</span>
+                    <span class="cab-hero-slab cab-cream">POR SU SABOR</span>
+                </h1>
+
+                <div class="cab-divider-star cab-intro cab-intro-2" aria-hidden="true">
+                    <span class="cab-divider-line"></span>
+                    <span class="cab-divider-star-icon">&#9733;</span>
+                    <span class="cab-divider-line"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ¿QUÉ ES LA MARCA CERTIFIED ANGUS BEEF®? -->
+        <section class="cab-brand" id="quienes-somos">
+            <div class="cab-brand-row">
+                <div class="cab-brand-inner cab-reveal cab-reveal-left">
+                    <h2 class="cab-brand-title">
+                        <span class="cab-brand-title-light">¿Qué es la marca</span>
+                        <span class="cab-brand-title-italic">Certified Angus Beef®?</span>
+                    </h2>
+
+                    <div class="cab-divider-cilantro" aria-hidden="true">
+                        <span class="cab-divider-line"></span>
+                        <!-- PLACEHOLDER: img/certified-angus-beef/cilantro.png -->
+                        <img src="img/certified-angus-beef/cilantro.png" alt="" class="cab-divider-icon">
+                        <span class="cab-divider-line"></span>
+                    </div>
+
+                    <p class="cab-brand-text">
+                        Es una etiqueta que reconoce la mejor carne de res Angus (las otras pueden ser comercializadas
+                        bajo otra etiqueta).
+                    </p>
+
+                    <p class="cab-brand-highlight">
+                        Solo 3 de cada 10 animales Angus cumplen con los elevados estándares de la marca*.
+                    </p>
+
+                    <p class="cab-brand-note">
+                        *Los clasificadores del departamento de Agricultura de Estados Unidos (USDA) y la Agencia de
+                        Clasificación de carne de Res (CBGA) en Canadá, certifican solo lo mejor para los 10
+                        especificaciones de calidad.
+                    </p>
+
+                    <a href="#10-especificaciones" class="cab-btn-outline">VER ESTÁNDARES</a>
+                </div>
+
+                <!-- PLACEHOLDER: img/certified-angus-beef/imagen-ancha.png -->
+                <div class="cab-wide-image-wrap cab-reveal cab-reveal-right">
+                    <img src="img/certified-angus-beef/imagen-ancha.png" alt="Ganado Angus en campo" class="cab-wide-image" loading="lazy">
+                </div>
+            </div>
+
+            <div class="cab-distributor-card cab-reveal">
+                <img src="img/logo/logo.svg" alt="INPELSA" class="cab-distributor-logo" loading="lazy">
+                <p>Certified Angus Beef® es distribuida por INPELSA, el único distribuidor licenciado en el Perú.</p>
+            </div>
+        </section>
+
+        <!-- VIDEO: "LA HISTORIA DE CERTIFIED ANGUS BEEF" -->
+        <section class="cab-video">
+            <h2 class="cab-visually-hidden">La historia de Certified Angus Beef</h2>
+            <!-- PLACEHOLDER: img/certified-angus-beef/video-poster.jpg. data-youtube-id vacío: completar
+                 con el ID del video de YouTube (ver nota al final). -->
+            <div class="cab-video-frame cab-reveal" id="cabVideoFrame" data-youtube-id="P-3_KnsQ9NU">
+                <img src="img/certified-angus-beef/video-poster.jpg" alt="La historia de Certified Angus Beef" class="cab-video-poster" loading="lazy">
+                <button type="button" class="cab-video-play" aria-label="Reproducir: La historia de Certified Angus Beef">
+                    <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false">
+                        <path d="M8 5v14l11-7z" fill="currentColor" />
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- 10 ESPECIFICACIONES DE CALIDAD -->
+        <section class="cab-specs" id="10-especificaciones">
+            <h2 class="cab-specs-title cab-reveal">
+                <span>Conoce las</span>
+                <span>10 especificaciones de calidad</span>
+            </h2>
+
+            <div class="cab-divider-cilantro cab-reveal" aria-hidden="true">
+                <span class="cab-divider-line"></span>
+                <img src="img/certified-angus-beef/cilantro.png" alt="" class="cab-divider-icon">
+                <span class="cab-divider-line"></span>
+            </div>
+
+            <!-- Las 3 tarjetas se renderizan desde el array SPECS en js/certified-angus-beef.js -->
+            <div class="cab-specs-grid" id="cabSpecsGrid"></div>
+        </section>
+
+        <!-- TRABAJEMOS JUNTOS: componente reutilizado tal cual de nosotros.html
+             (misma marca, mismo CSS de css/global.css, mismo js/nosotros.js; nosotros.html
+             no cambió). Ancla #clientes-licenciados para el submenú del navbar. -->
+        <section class="section-clientes">
+            <div class="container">
+                <div class="clientes-block" id="clientes-licenciados">
+                    <div class="clientes-header">
+                        <h3>CLIENTES <span>LICENCIADOS</span></h3>
+                        <div class="slider-controls">
+                            <button class="control-btn"><i class="fas fa-chevron-left"></i></button>
+                            <button class="control-btn"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="logos-grid">
+                        <div class="logo-card">
+                            <img src="img/clientes/buffalo-beef.png" alt="Buffalo Beef">
+                        </div>
+                        <div class="logo-card">
+                            <img src="img/clientes/lacarreta.jpg" alt="LA CARRETA">
+                        </div>
+                        <div class="logo-card">
+                            <img src="img/clientes/doomosaltado.jpg" alt="DOOMO SALTADO">
+                        </div>
+                        <div class="logo-card">
+                            <img src="img/clientes/dongoyo.jpg" alt="DON GOYO">
+                        </div>
+                        <div class="logo-card">
+                            <img src="img/clientes/costumbresargentinas.jpg" alt="COSTUMBRES ARGENTINAS">
+                        </div>
+                        <div class="logo-card">
+                            <img src="img/clientes/lalocanda.jpg" alt="LA LOCANDA">
+                        </div>
+                        <div class="logo-card">
+                            <img src="img/clientes/carnal.jpg" alt="CARNAL">
+                        </div>
+                        <div class="logo-card">
+                            <img src="img/clientes/elparrillon.jpg" alt="EL PARRILLON">
+                        </div>
+                        <div class="logo-card">
+                            <img src="img/clientes/brass.jpg" alt="BRASS">
+                        </div>
+                        <div class="logo-card">
+                            <img src="img/clientes/el10.jpg" alt="EL 10">
+                        </div>
+                        <div class="logo-card">
+                            <img src="img/clientes/filomeno.jpg" alt="FILOMENO">
+                        </div>
+                        <div class="logo-card">
+                            <img src="img/clientes/donnico.jpg" alt="DON NICO">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FRANJA "ÚNICO DISTRIBUIDOR LICENCIADO" (específica de esta página, no forma
+             parte del footer global compartido) -->
+        <div class="cab-distributor-strip cab-reveal">
+            <p>INPELSA es el único distribuidor licenciado de Certified Angus Beef® en Perú</p>
+        </div>
+    </main>
+
+    <!-- FOOTER GLOBAL (igual al del resto del sitio, sin cambios) -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="row g-4">
+
+                <div class="footer-col col-social col-12 col-md-5">
+                    <h3 class="footer-title">PASIÓN POR LA CARNE</h3>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/inpelsaperu/" target="_blank" rel="noopener" class="social-icon"
+                            aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@inpelsaperu" target="_blank" rel="noopener" class="social-icon"
+                            aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.linkedin.com/company/inpelsa-per%C3%BA/" target="_blank" rel="noopener"
+                            class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/InpelsaOficial/" target="_blank" rel="noopener"
+                            class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col col-12 col-md-4">
+                    <h3 class="footer-title">NOSOTROS</h3>
+                    <ul class="footer-list">
+                        <li><a href="nosotros.html#quienes-somos">QUIÉNES SOMOS</a></li>
+                        <li><a href="nosotros.html#sedes">NUESTRAS SEDES</a></li>
+                        <li><a href="blog.html">NOVEDADES</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col col-12 col-md-3">
+                    <h3 class="footer-title">LEGALES</h3>
+                    <ul class="footer-list">
+                        <li><a href="privacidad.html">POLÍTICAS DE PRIVACIDAD</a></li>
+                    </ul>
+                    <a href="libro-de-reclamaciones.html" class="libro-reclamaciones-btn">
+                        <img src="img/libro-reclamaciones.png" alt="Libro de Reclamaciones">
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Barra Inferior de Copyright -->
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>&copy; 2026 INPELSA</p>
+                <p>Diseñado por <strong>Estudiantes UTP</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- nosotros.js: reutilizado tal cual, activa el carrusel de "clientes-block" de arriba -->
+    <script src="nosotros.js"></script>
+    <script src="js/certified-angus-beef.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/nav-mobile.js" defer></script>
+    <script src="js/scroll-animations.js" defer></script>
+</body>
+
+</html>

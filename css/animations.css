@@ -1,0 +1,235 @@
+@charset "UTF-8";
+/* =====================================================================
+   INPELSA - animations.css
+   -----------------------------------------------------------------
+   Hoja compartida por las 6 páginas del sitio (index, nosotros,
+   lineas, marcas, productos, contacto). Reúne los temas pendientes
+   del curso:
+
+     - Animaciones web (introducción, tipos, propiedades, aplicaciones)
+     - Transiciones y transformaciones (conceptos, propiedades)
+     - Compatibilidad entre navegadores
+
+   Se aplica mediante clases genéricas sobre las tarjetas/secciones que
+   YA existen en cada página (ver js/scroll-animations.js), para no
+   tener que reescribir el HTML de cada una.
+   ===================================================================== */
+
+/* ------------------------------------------------------------------ *
+ * TEMA: ANIMACIONES WEB — @keyframes (tipos de animación)
+ * fadeInUp  -> animación de entrada (one-shot)
+ * pulseGlow -> animación continua/infinita (loop)
+ * floatY    -> animación continua suave (idle)
+ * iconPop   -> animación disparada por :hover
+ * ------------------------------------------------------------------ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(227, 27, 35, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(227, 27, 35, 0);
+  }
+}
+
+@keyframes floatY {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes iconPop {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.15) rotate(-6deg);
+  }
+  100% {
+    transform: scale(1.08) rotate(0deg);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * TEMA: ANIMACIONES WEB — activadas por scroll
+ * js/scroll-animations.js agrega ".will-animate" (estado inicial) y
+ * luego ".is-visible" (dispara la animación) vía IntersectionObserver
+ * a tarjetas, encabezados y bloques de contenido de todas las páginas.
+ * Si JavaScript está desactivado estas clases nunca se agregan, así
+ * que el contenido se ve normal (progressive enhancement).
+ * ------------------------------------------------------------------ */
+.will-animate {
+  opacity: 0;
+}
+
+.will-animate.is-visible {
+  animation-name: fadeInUp;
+  animation-duration: 0.7s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeInUp;
+  -webkit-animation-duration: 0.7s;
+  -webkit-animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  -webkit-animation-fill-mode: both;
+}
+
+/* Variantes direccionales: columnas de texto/imagen lado a lado
+   (ver js/scroll-animations.js: ".about-left/.right", ".quienes-content",
+   ".hero-left/.right", ".contacto-info/.card", ".lineas-content/.slider"). */
+.will-animate.dir-left.is-visible {
+  animation-name: fadeInLeft;
+  -webkit-animation-name: fadeInLeft;
+}
+
+.will-animate.dir-right.is-visible {
+  animation-name: fadeInRight;
+  -webkit-animation-name: fadeInRight;
+}
+
+/* Aparición escalonada (stagger) de tarjetas repetidas en una misma
+   grilla: cada una se revela un poco después que la anterior. */
+.feature-card:nth-child(2).is-visible, .product-card:nth-child(2).is-visible,
+.news-card:nth-child(2).is-visible, .logo-box:nth-child(2).is-visible,
+.marca-card:nth-child(2).is-visible, .ventaja-item:nth-child(2).is-visible,
+.timeline-card:nth-child(2).is-visible, .valor-card:nth-child(2).is-visible,
+.logo-card:nth-child(2).is-visible, .sede-card:nth-child(2).is-visible {
+  animation-delay: 0.12s;
+  -webkit-animation-delay: 0.12s;
+}
+.feature-card:nth-child(3).is-visible, .product-card:nth-child(3).is-visible,
+.news-card:nth-child(3).is-visible, .logo-box:nth-child(3).is-visible,
+.marca-card:nth-child(3).is-visible, .ventaja-item:nth-child(3).is-visible,
+.timeline-card:nth-child(3).is-visible, .valor-card:nth-child(3).is-visible,
+.logo-card:nth-child(3).is-visible, .sede-card:nth-child(3).is-visible {
+  animation-delay: 0.24s;
+  -webkit-animation-delay: 0.24s;
+}
+.feature-card:nth-child(4).is-visible, .product-card:nth-child(4).is-visible,
+.news-card:nth-child(4).is-visible, .logo-box:nth-child(4).is-visible,
+.ventaja-item:nth-child(4).is-visible, .valor-card:nth-child(4).is-visible,
+.logo-card:nth-child(4).is-visible {
+  animation-delay: 0.36s;
+  -webkit-animation-delay: 0.36s;
+}
+
+/* Animación infinita (loop) sobre el botón de contacto del navbar */
+.btn-contacto-nav {
+  animation: pulseGlow 2.4s ease-in-out infinite;
+  -webkit-animation: pulseGlow 2.4s ease-in-out infinite;
+}
+
+/* Animación continua suave sobre el badge del Libro de Reclamaciones (footer, todas las páginas) */
+.libro-reclamaciones-btn img {
+  animation: floatY 3s ease-in-out infinite;
+  -webkit-animation: floatY 3s ease-in-out infinite;
+}
+
+/* ------------------------------------------------------------------ *
+ * TEMA: TRANSICIONES Y TRANSFORMACIONES
+ * transition-property / duration / timing-function disparando un
+ * transform (scale/translate/rotate) en hover, sobre elementos que
+ * todavía no tenían este efecto en el diseño original.
+ * ------------------------------------------------------------------ */
+.ventaja-icon img,
+.sede-icon {
+  transition: transform 0.35s ease;
+  -webkit-transition: -webkit-transform 0.35s ease;
+}
+.ventaja-item:hover .ventaja-icon img,
+.sede-item:hover .sede-icon {
+  animation: iconPop 0.6s ease;
+  -webkit-animation: iconPop 0.6s ease;
+}
+
+.card-badge,
+.news-badge,
+.sede-badge {
+  display: inline-block;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  -webkit-transition: -webkit-transform 0.3s ease, background-color 0.3s ease;
+}
+.feature-card:hover .card-badge,
+.news-card:hover .news-badge,
+.sede-item:hover .sede-badge {
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* Botones de Bootstrap (framework CSS) adaptados al tema oscuro del sitio */
+.btn.btn-outline-light,
+.btn.btn-danger {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  -webkit-transition: -webkit-transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn.btn-outline-light:hover,
+.btn.btn-danger:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* ------------------------------------------------------------------ *
+ * TEMA: COMPATIBILIDAD ENTRE NAVEGADORES
+ * - Prefijos -webkit- en animation/transition/transform para motores
+ *   WebKit antiguos (Safari < 9, iOS antiguo) que no reconocen aún
+ *   la propiedad estándar sin prefijo.
+ * - @supports: feature query que aplica backdrop-filter solo si el
+ *   navegador lo soporta (con o sin prefijo), degradando con
+ *   elegancia en el resto (el header ya es legible sin el blur).
+ * - prefers-reduced-motion: respeta la preferencia de accesibilidad
+ *   del sistema operativo/navegador, desactivando las animaciones.
+ * ------------------------------------------------------------------ */
+@supports (backdrop-filter: blur(6px)) or (-webkit-backdrop-filter: blur(6px)) {
+  .header {
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .will-animate,
+  .will-animate.is-visible,
+  .btn-contacto-nav,
+  .libro-reclamaciones-btn img,
+  .ventaja-item:hover .ventaja-icon img,
+  .sede-item:hover .sede-icon {
+    animation: none !important;
+    -webkit-animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

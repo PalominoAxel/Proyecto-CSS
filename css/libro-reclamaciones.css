@@ -1,0 +1,176 @@
+/* =====================================================================
+   INPELSA - libro-reclamaciones.css
+   -----------------------------------------------------------------
+   Hoja de estilos de "Libro de Reclamaciones". Centra estrictamente
+   todo el bloque (contenedor, grupos de radio buttons, texto legal y
+   botón ENVIAR) en el eje horizontal de la página.
+   ===================================================================== */
+
+/* Despeja el header fijo */
+main.libro-section {
+  padding-top: 150px;
+  padding-bottom: 60px;
+  background-color: #0d0d0d;
+  min-height: calc(100vh - 150px);
+}
+
+/* 1. CONTENEDOR PRINCIPAL CENTRADO: ancho máximo + márgenes automáticos */
+.libro-form-container {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  color: #ffffff;
+}
+
+.libro-form-container h1 {
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.libro-form-container > p {
+  color: #d0d0d0;
+  font-size: 0.9rem;
+}
+
+.libro-form {
+  text-align: left;
+}
+
+.libro-form h3 {
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.libro-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.libro-form .form-label {
+  color: #E8D9B5;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.libro-form .form-control {
+  background-color: #3a3a3a;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #ffffff;
+  padding: 10px 14px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.libro-form .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.libro-form .form-control:focus {
+  border-color: #E31C25;
+  background-color: #444444;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+/* 2. CENTRADO DE OPCIONES Y RADIO BUTTONS (DNI/CE/Pasaporte/RUC, Queja/Reclamo) */
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin: 10px 0 20px;
+}
+
+.radio-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #242424;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 30px;
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+.radio-pill:hover {
+  border-color: #E31C25;
+}
+.radio-pill input[type="radio"] {
+  accent-color: #E31C25;
+}
+
+.radio-helper {
+  text-align: center;
+  color: #9a9a9a;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+.form-check-group {
+  flex-direction: row !important;
+  align-items: center;
+}
+.form-check-group .form-check-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #d0d0d0;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.form-check-group .form-check-input {
+  accent-color: #E31C25;
+}
+
+/* 3. TEXTO LEGAL Y BOTÓN ENVIAR ALINEADOS EN EL BLOQUE CENTRAL */
+.legal-text {
+  text-align: center;
+  color: #9a9a9a;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 20px auto;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.btn-enviar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #E31C25;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 6px;
+  padding: 13px 32px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.btn-enviar:hover {
+  background-color: #b6161e;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 767px) {
+  main.libro-section {
+    padding-top: 130px;
+  }
+  .libro-form-container h1 {
+    font-size: 1.7rem;
+  }
+}

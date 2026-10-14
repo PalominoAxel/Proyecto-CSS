@@ -123,18 +123,13 @@
   max-width: 420px;
   margin: 0 auto 30px;
 }
-.contacto-form {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
+/* TEMA: FRAMEWORKS CSS (Bootstrap) — el grid de 2 columnas del
+   formulario ahora usa "row g-3" + "col-md-6"/"col-12" (ver
+   contacto.html); aquí solo queda el layout interno de cada campo. */
 .contacto-form .form-group {
   display: flex;
   flex-direction: column;
   gap: 6px;
-}
-.contacto-form .form-group--full {
-  grid-column: 1 / -1;
 }
 .contacto-form label {
   color: #E8D9B5;
@@ -176,7 +171,6 @@
   border-bottom: 2px solid #E31C25;
 }
 .contacto-form .form-actions {
-  grid-column: 1 / -1;
   display: flex;
   justify-content: flex-end;
 }
@@ -214,9 +208,6 @@
   }
   .contacto-card {
     padding: 20px;
-  }
-  .contacto-form {
-    grid-template-columns: 1fr;
   }
   .contacto-form .form-actions {
     justify-content: stretch;

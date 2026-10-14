@@ -61,16 +61,12 @@
   background-color: #0d0d0d;
   padding-bottom: 90px;
 }
+/* TEMA: FRAMEWORKS CSS (Bootstrap) — ambas grillas usan ahora
+   "row g-3" + "col-*" (ver productos.html) para el layout responsivo. */
 .productos-grid-top {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
   margin-top: 30px;
 }
 .productos-grid-bottom {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
   margin-top: 20px;
 }
 .product-card {
@@ -230,10 +226,6 @@ body.modal-open {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  .productos-grid-top,
-  .productos-grid-bottom {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 @media (max-width: 480px) {
   .productos-hero {
@@ -241,10 +233,6 @@ body.modal-open {
   }
   .productos-hero .hero-title {
     font-size: 1.8rem;
-  }
-  .productos-grid-top,
-  .productos-grid-bottom {
-    grid-template-columns: 1fr;
   }
   .product-card,
   .productos-grid-bottom .product-card {

@@ -1,0 +1,504 @@
+@charset "UTF-8";
+/* =====================================================================
+   BÁRBARO - barbaro.css
+   -----------------------------------------------------------------
+   Página independiente (NO usa css/global.css): tiene su propio reset,
+   header y footer de marca, distintos del resto del sitio INPELSA.
+   Réplica de diseño (no copia de código/assets) de inpelsa.com.pe/barbaro.
+   ===================================================================== */
+
+:root {
+  --barbaro-red: #CD0001;
+  --barbaro-cream: #F0EADE;
+  --font-display: 'Unbounded', 'Syne', sans-serif;
+  --font-condensed: 'Bebas Neue', 'Anton', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+[id] {
+  scroll-margin-top: 65px;
+}
+
+body {
+  background-color: var(--barbaro-red);
+  color: var(--barbaro-cream);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ------------------------------------------------------------------ *
+ * A) HEADER
+ * ------------------------------------------------------------------ */
+.bb-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 65px;
+  background-color: var(--barbaro-red);
+  display: flex;
+  align-items: center;
+}
+
+.bb-header-inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.bb-logo-link {
+  display: block;
+  flex-shrink: 0;
+}
+
+.bb-logo {
+  height: 45px;
+  width: auto;
+}
+
+.bb-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.5vw, 28px);
+}
+
+.bb-nav-link {
+  font-family: var(--font-condensed);
+  color: var(--barbaro-cream);
+  font-size: clamp(14px, 1.3vw, 18px);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: opacity 0.3s ease;
+}
+
+.bb-nav-link:hover {
+  opacity: 0.7;
+}
+
+.bb-social {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: 6px;
+}
+
+.bb-social-icon {
+  color: #ffffff;
+  display: inline-flex;
+  transition: opacity 0.3s ease;
+}
+
+.bb-social-icon:hover {
+  opacity: 0.7;
+}
+
+.bb-nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.bb-nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--barbaro-cream);
+}
+
+/* ------------------------------------------------------------------ *
+ * B) HERO
+ * ------------------------------------------------------------------ */
+.bb-hero {
+  height: clamp(260px, 50vw, 545px);
+  background-color: var(--barbaro-red);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ------------------------------------------------------------------ *
+ * C) TARJETA DE PRESENTACIÓN
+ * ------------------------------------------------------------------ */
+.bb-intro {
+  padding: 0 24px;
+}
+
+.bb-card {
+  position: relative;
+  max-width: 780px;
+  margin: -120px auto 0;
+  background-color: var(--barbaro-cream);
+  background-image: url('../img/barbaro/textura-fondo.png');
+  background-size: cover;
+  padding: 25px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.bb-card-logo {
+  margin: 0 auto 8px;
+}
+
+.bb-card-logo img {
+  width: clamp(220px, 35vw, 374px);
+  margin: 0 auto;
+}
+
+.bb-eyebrow {
+  font-family: var(--font-body);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(16px, 2vw, 22px);
+  color: var(--barbaro-red);
+  margin-top: 12px;
+}
+
+.bb-headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(22px, 3vw, 32px);
+  color: var(--barbaro-red);
+  letter-spacing: 1px;
+}
+
+.bb-subheadline {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(22px, 3vw, 32px);
+  color: var(--barbaro-red);
+  margin-top: 4px;
+}
+
+/* Bloque que enmarca "Carnes de res para / Hamburguesas / Hechas para
+   amigos". El sello queda fijo en SU esquina inferior derecha (no sobre
+   el texto ni sobre los párrafos de abajo), sin depender del zoom. */
+.bb-heading-block {
+  position: relative;
+  margin-bottom: 55px;
+}
+
+.bb-seal {
+  position: absolute;
+  bottom: -40px;
+  right: -8px;
+  width: clamp(100px, 15vw, 150px);
+  transform: rotate(-4deg);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.bb-copy p {
+  font-family: var(--font-body);
+  color: var(--barbaro-red);
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.5;
+  text-align: center;
+  margin-top: 14px;
+}
+
+.bb-copy p:first-child {
+  margin-top: 0;
+}
+
+/* ------------------------------------------------------------------ *
+ * D) SECCIÓN ROJA DE PRODUCTOS
+ * ------------------------------------------------------------------ */
+.bb-products {
+  background-color: var(--barbaro-red);
+  padding: clamp(60px, 12vw, 150px) 20px 60px;
+}
+
+.bb-section-title {
+  font-family: var(--font-display);
+  color: var(--barbaro-cream);
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: clamp(24px, 3vw, 32px);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.bb-products-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.bb-product-card {
+  background-color: var(--barbaro-cream);
+  clip-path: polygon(20px 0, calc(100% - 20px) 0, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px), 0 20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  transition: transform 0.3s ease;
+}
+
+.bb-product-card:hover {
+  transform: scale(1.03);
+}
+
+.bb-product-card img {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.bb-product-label {
+  font-family: var(--font-display);
+  color: var(--barbaro-cream);
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: clamp(18px, 2vw, 24px);
+  letter-spacing: 2px;
+  text-align: center;
+  margin-top: 18px;
+}
+
+.bb-product-name {
+  font-family: var(--font-condensed);
+  color: var(--barbaro-cream);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: clamp(32px, 5vw, 48px);
+  text-align: center;
+  line-height: 1;
+}
+
+/* ------------------------------------------------------------------ *
+ * E) ENCUÉNTRANOS EN
+ * ------------------------------------------------------------------ */
+.bb-store-box {
+  max-width: 92%;
+  margin: 60px auto 0;
+  border: 3px solid var(--barbaro-cream);
+  padding: 45px;
+}
+
+.bb-store-title {
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.bb-store-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.bb-store-logo {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.bb-store-logo:hover {
+  transform: translateY(-3px);
+}
+
+.bb-store-logo img {
+  width: 86%;
+  height: 86%;
+  object-fit: contain;
+}
+
+/* El logo de Wong ya trae su propio círculo/encuadre interno, así que
+   puede llenar casi todo el círculo contenedor sin recortarse. */
+.bb-store-logo--full img {
+  width: 98%;
+  height: 98%;
+}
+
+/* ------------------------------------------------------------------ *
+ * F) FRANJA "MARCA EXCLUSIVA DE..."
+ * ------------------------------------------------------------------ */
+.bb-exclusive {
+  background-color: var(--barbaro-cream);
+  padding: 30px 20px 0;
+}
+
+.bb-exclusive-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-family: var(--font-display);
+  color: var(--barbaro-red);
+  text-transform: uppercase;
+  font-size: clamp(15px, 2vw, 20px);
+  text-align: center;
+}
+
+.bb-inpelsa-link img {
+  width: 48px;
+  height: 64px;
+}
+
+.bb-divider {
+  height: 1px;
+  background-color: var(--barbaro-red);
+  margin-top: 24px;
+}
+
+/* ------------------------------------------------------------------ *
+ * G) FOOTER
+ * ------------------------------------------------------------------ */
+.bb-footer {
+  background-color: var(--barbaro-cream);
+  padding: 20px 20px 30px;
+}
+
+.bb-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.bb-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--barbaro-red);
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+.bb-footer-icon {
+  color: var(--barbaro-red);
+  display: inline-flex;
+}
+
+.bb-footer-right {
+  color: var(--barbaro-red);
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+/* ------------------------------------------------------------------ *
+ * RESPONSIVE — breakpoints 1024px y 768px
+ * ------------------------------------------------------------------ */
+@media (max-width: 1024px) {
+  .bb-products-grid {
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bb-nav-toggle {
+    display: flex;
+  }
+
+  .bb-nav {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+    background-color: var(--barbaro-red);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 24px;
+    gap: 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  .bb-nav.is-open {
+    max-height: 320px;
+    padding: 20px 24px;
+  }
+
+  .bb-social {
+    margin-left: 0;
+    margin-top: 4px;
+  }
+
+  .bb-hero {
+    height: clamp(220px, 60vw, 320px);
+  }
+
+  .bb-intro {
+    padding: 0 16px;
+  }
+
+  .bb-card {
+    margin: -60px 0 0;
+    padding: 20px;
+  }
+
+  .bb-heading-block {
+    margin-bottom: 42px;
+  }
+
+  .bb-seal {
+    bottom: -30px;
+    right: -4px;
+    width: clamp(80px, 28vw, 120px);
+  }
+
+  .bb-products-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+  }
+
+  .bb-store-box {
+    padding: 28px;
+  }
+
+  .bb-store-logos {
+    justify-content: center;
+  }
+
+  .bb-footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}

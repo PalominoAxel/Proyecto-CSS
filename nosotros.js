@@ -107,6 +107,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         enableDragScroll(track, normalize);
 
+        // Reubica el scroll en CUALQUIER scroll (touch en móvil, rueda del mouse, etc.),
+        // no solo al soltar el drag con mouse: antes, en pantallas táctiles, el loop se
+        // quedaba "congelado" al llegar al final hasta el siguiente auto-avance.
+        track.addEventListener('scroll', normalize, { passive: true });
+
         // Auto-avance cada 1.5s, en pausa mientras el usuario interactúa con el carril
         let paused = false;
         track.addEventListener('mouseenter', () => { paused = true; });

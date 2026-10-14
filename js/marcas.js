@@ -99,33 +99,5 @@ document.addEventListener('DOMContentLoaded', () => {
         animatedEls.forEach((el) => observer.observe(el));
     }
 
-    /* ---------- Menú hamburguesa (móvil) ---------- */
-    const navToggle = document.getElementById('navToggle');
-    const mainNav = document.getElementById('mainNav');
-
-    if (navToggle && mainNav) {
-        function closeNav() {
-            mainNav.classList.remove('is-open');
-            navToggle.classList.remove('is-open');
-            navToggle.setAttribute('aria-expanded', 'false');
-        }
-
-        navToggle.addEventListener('click', () => {
-            const isOpen = mainNav.classList.toggle('is-open');
-            navToggle.classList.toggle('is-open', isOpen);
-            navToggle.setAttribute('aria-expanded', String(isOpen));
-        });
-
-        mainNav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeNav));
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && mainNav.classList.contains('is-open')) closeNav();
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!mainNav.classList.contains('is-open')) return;
-            if (mainNav.contains(e.target) || navToggle.contains(e.target)) return;
-            closeNav();
-        });
-    }
+    // El menú hamburguesa (móvil) ahora es compartido: ver js/nav-mobile.js
 });
