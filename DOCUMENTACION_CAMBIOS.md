@@ -48,11 +48,22 @@ Se evaluaron Bootstrap, Tailwind, Material Design y Materialize. **Se aplicó ú
 
 **Qué no se tocó a propósito:** la grilla de "¿Por qué trabajar con Inpelsa?" (`index.html`, `.ventajas-grid`) y los sliders/acordeones/modales ya construidos a mano (hero slider, acordeón de líneas, modal de productos, slider de marcas) se dejaron con su implementación original: son demasiado específicos (líneas divisoras con pseudo-elementos, lógica JS propia) y convertirlos a Bootstrap no aportaba valor, solo riesgo de romper el diseño.
 
+## 5. Cobertura en páginas adicionales
+
+Además de las 6 páginas principales, el sitio tiene páginas independientes agregadas después (`certified-angus-beef.html`, `libro-de-reclamaciones.html`, `privacidad.html`, `barbaro.html`). Las tres primeras ya cargaban Bootstrap + `css/animations.css` + `js/scroll-animations.js` desde su creación.
+
+`barbaro.html` (micrositio de marca, con su propio reset/header/footer y SIN `css/global.css`) quedó fuera en el commit original. Se agregó:
+
+- Bootstrap 5.3 (CDN, CSS + JS bundle), cargado antes de `css/barbaro.css` para que el reset propio de la página siga ganando la cascada.
+- `css/animations.css` + `js/scroll-animations.js`, reutilizando el sistema compartido de `.will-animate`/`.is-visible` mediante el atributo genérico `data-animate` en `.bb-card`, los dos `.bb-product` y `.bb-store-box` (no fue necesario tocar el script compartido).
+- Prefijos `-webkit-` en las transiciones/transformaciones que ya existían en `css/barbaro.css` (`.bb-product-card:hover`, `.bb-store-logo:hover`).
+- Bloque `@media (prefers-reduced-motion: reduce)` propio para esos mismos hovers, igual que el resto del sitio.
+
 ## Archivos nuevos
 - `css/animations.css`
 - `js/scroll-animations.js`
 - `DOCUMENTACION_CAMBIOS.md` (este archivo)
 
 ## Archivos editados
-- `css/global.css`, `css/contacto.css`, `css/productos.css`
-- `index.html`, `nosotros.html`, `lineas.html`, `marcas.html`, `productos.html`, `contacto.html`
+- `css/global.css`, `css/contacto.css`, `css/productos.css`, `css/barbaro.css`
+- `index.html`, `nosotros.html`, `lineas.html`, `marcas.html`, `productos.html`, `contacto.html`, `barbaro.html`

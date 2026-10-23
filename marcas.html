@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Aplica la vista de noche guardada antes del primer render, para evitar parpadeo del tema -->
+    <script>(function(){try{if(localStorage.getItem('inpelsa-theme')==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
     <title>Marcas | INPELSA</title>
     <link rel="icon" type="image/svg+xml" href="img/logo/logo.svg">
     <!-- Fuentes (Raleway y los fallbacks de las tipografías comerciales) -->
@@ -71,6 +73,24 @@
                     <img src="img/logo/barbaro.JPG" alt="Bárbaro" class="brand-icon"> Bárbaro
                 </a>
                 <a href="contacto.html" class="btn-contacto-nav">Contacto</a>
+                <button type="button" class="theme-toggle" id="themeToggle" aria-pressed="false" aria-label="Cambiar a vista de noche">
+                    <svg class="theme-toggle-icon icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M20.7 14.6c-3.7 1-7.6-1.4-8.6-5.1-.6-2.2-.1-4.5 1.2-6.2-4.2.2-7.6 3.7-7.8 7.9-.2 4.6 3.4 8.5 8 8.7 3.6.2 6.9-1.9 8.3-5.1-.4 0-.7-.1-1.1-.2Z" fill="currentColor" />
+                    </svg>
+                    <svg class="theme-toggle-icon icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <circle cx="12" cy="12" r="4.5" fill="currentColor" />
+                        <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                            <line x1="12" y1="1.5" x2="12" y2="4.2" />
+                            <line x1="12" y1="19.8" x2="12" y2="22.5" />
+                            <line x1="1.5" y1="12" x2="4.2" y2="12" />
+                            <line x1="19.8" y1="12" x2="22.5" y2="12" />
+                            <line x1="4.4" y1="4.4" x2="6.3" y2="6.3" />
+                            <line x1="17.7" y1="17.7" x2="19.6" y2="19.6" />
+                            <line x1="4.4" y1="19.6" x2="6.3" y2="17.7" />
+                            <line x1="17.7" y1="6.3" x2="19.6" y2="4.4" />
+                        </g>
+                    </svg>
+                </button>
             </nav>
         </div>
     </header>
@@ -211,6 +231,7 @@
     <script src="js/marcas.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/nav-mobile.js" defer></script>
+    <script src="js/theme-toggle.js" defer></script>
     <script src="js/scroll-animations.js" defer></script>
 </body>
 

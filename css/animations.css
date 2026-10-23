@@ -1,21 +1,6 @@
 @charset "UTF-8";
-/* =====================================================================
-   INPELSA - animations.css
-   -----------------------------------------------------------------
-   Hoja compartida por las 6 páginas del sitio (index, nosotros,
-   lineas, marcas, productos, contacto). Reúne los temas pendientes
-   del curso:
 
-     - Animaciones web (introducción, tipos, propiedades, aplicaciones)
-     - Transiciones y transformaciones (conceptos, propiedades)
-     - Compatibilidad entre navegadores
-
-   Se aplica mediante clases genéricas sobre las tarjetas/secciones que
-   YA existen en cada página (ver js/scroll-animations.js), para no
-   tener que reescribir el HTML de cada una.
-   ===================================================================== */
-
-/* ------------------------------------------------------------------ *
+/*
  * TEMA: ANIMACIONES WEB — @keyframes (tipos de animación)
  * fadeInUp  -> animación de entrada (one-shot)
  * pulseGlow -> animación continua/infinita (loop)

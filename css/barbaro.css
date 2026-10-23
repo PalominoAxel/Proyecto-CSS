@@ -5,6 +5,10 @@
    Página independiente (NO usa css/global.css): tiene su propio reset,
    header y footer de marca, distintos del resto del sitio INPELSA.
    Réplica de diseño (no copia de código/assets) de inpelsa.com.pe/barbaro.
+   Sí carga Bootstrap (CDN, por si se necesitan sus componentes JS) y
+   css/animations.css (keyframes + .will-animate/.is-visible compartidos
+   para el scroll-reveal vía js/scroll-animations.js, ver atributos
+   data-animate en barbaro.html).
    ===================================================================== */
 
 :root {
@@ -268,10 +272,12 @@ a {
   justify-content: center;
   padding: 24px;
   transition: transform 0.3s ease;
+  -webkit-transition: -webkit-transform 0.3s ease;
 }
 
 .bb-product-card:hover {
   transform: scale(1.03);
+  -webkit-transform: scale(1.03);
 }
 
 .bb-product-card img {
@@ -333,10 +339,12 @@ a {
   overflow: hidden;
   flex-shrink: 0;
   transition: transform 0.3s ease;
+  -webkit-transition: -webkit-transform 0.3s ease;
 }
 
 .bb-store-logo:hover {
   transform: translateY(-3px);
+  -webkit-transform: translateY(-3px);
 }
 
 .bb-store-logo img {
@@ -500,5 +508,22 @@ a {
   .bb-footer-inner {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+/* Compatibilidad / accesibilidad: respeta la preferencia de "menos movimiento"
+   del sistema operativo también en los hovers propios de esta página. */
+@media (prefers-reduced-motion: reduce) {
+  .bb-nav-link,
+  .bb-social-icon,
+  .bb-product-card,
+  .bb-store-logo {
+    transition: none !important;
+    -webkit-transition: none !important;
+  }
+  .bb-product-card:hover,
+  .bb-store-logo:hover {
+    transform: none !important;
+    -webkit-transform: none !important;
   }
 }
